@@ -1,7 +1,3 @@
-//obtain page elements
-c = document.getElementById('canvas');
-cc = c.getContext('2d')
-
 
 // Get access to the camera!
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -21,14 +17,6 @@ document.getElementById("snap").addEventListener("click", function() {
   // TODO: ensure that the colors are being obtained at the correct corner, and that the transform does not affect it
   // TODO: move the region to the center bottom
 });
-
-// //DEFINE OUR OWN COLOR, THIS WILL LATER BE OBTAINED FROM THE camera
-// tracking.ColorTracker.registerColor('skinTone', function(r, g, b) {
-//   if (r < 220 && r > 155   && g < 160 && g > 95  && b < 135 && b > 70) {
-//     return true;
-//   }
-//   return false;
-// });
 
 
 var colors = new tracking.ColorTracker(['magenta']);
@@ -71,10 +59,10 @@ var update = () => {
     x_velocity = -x_velocity;
   }
   //bottom of the screen
-  if(ball_y_position>c.height && y_velocity > 0) {
+  if(ball_y_position>canvas.height && y_velocity > 0) {
     y_velocity=-y_velocity;
   }
-  if(ball_x_position > c.width  && x_velocity > 0){
+  if(ball_x_position > canvas.width  && x_velocity > 0){
     x_velocity = -x_velocity;
   }
 
@@ -86,13 +74,13 @@ var update = () => {
   drawBricks();
 
   //create a sphere
-  cc.beginPath();
-  cc.arc(ball_x_position, ball_y_position, ball_dimension, 0, Math.PI*2, false)
-  cc.fillStyle='green';
-  cc.fill();
-  cc.closePath();
-  cc.fillStyle='red'; // can comment out when not debugging
-  cc.fillRect(paddle_x_position, paddle_y_position, paddle_width, paddle_height);
+  context.beginPath();
+  context.arc(ball_x_position, ball_y_position, ball_dimension, 0, Math.PI*2, false)
+  context.fillStyle='green';
+  context.fill();
+  context.closePath();
+  context.fillStyle='red'; // can comment out when not debugging
+  context.fillRect(paddle_x_position, paddle_y_position, paddle_width, paddle_height);
 }
 
 // RENDERS THE IMAGE
@@ -108,11 +96,11 @@ function drawBricks() {
       var brickY = (r*(brickHeight+brickPaddingY))+brickOffsetTop;
       bricks[c][r].x = brickX;
       bricks[c][r].y = brickY;
-      cc.beginPath();
-      cc.rect(brickX, brickY, brickWidth, brickHeight);
-      cc.fillStyle = "#0095DD";
-      cc.fill();
-      cc.closePath();
+      context.beginPath();
+      context.rect(brickX, brickY, brickWidth, brickHeight);
+      context.fillStyle = "#0095DD";
+      context.fill();
+      context.closePath();
     }
   }
 }

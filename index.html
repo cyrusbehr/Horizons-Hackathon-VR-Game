@@ -6,26 +6,16 @@
   <meta charset="utf-8">
   <title>tracking.js - first tracking</title>
   <script src="./js/lib/tracking-min.js"></script>
-  <style media="screen">
-  *{
-    padding: 0;
-    margin: 0;
-  }
-  #canvas{
-    transform: rotateY(180deg);
-  }
-  </style>
+  <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-
   <!-- video used to render large image -->
   <video style="display: none" id="video" width="10" height="10" autoplay></video>
-  <button id="snap">Take picture</button>
   <!-- canvas where the video is rendered -->
   <canvas id="canvas" width="640" height="480"></canvas>
   <!-- video in which the tracking is done -->
   <video id="my_velocityvideo" width="200" height="150" preload autoplay loop muted></video>
-
+  <button id="snap">Take picture</button>
   <script src="./js/variables.js"></script>
   <script src="./js/computer-vision-helper.js"></script>
   <script src="./js/game.js"></script>
