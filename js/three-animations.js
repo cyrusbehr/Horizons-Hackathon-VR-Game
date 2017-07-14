@@ -15,15 +15,10 @@ function init() {
   var WIDTH = window.innerWidth;
   var HEIGHT = window.innerHeight;
 
-
   // Create a camera, zoom it out from the model a bit
   camera = new THREE.PerspectiveCamera( 90, WIDTH / HEIGHT, 1, 10000 );
   camera.position.z = 200;
   camera.position.y = -25;
-
-
-
-
 
   // Create and ambient light
   ambLight = new THREE.AmbientLight( 0xcd950c )
@@ -39,7 +34,6 @@ function init() {
   sptlight.shadow.mapSize.height = 2048;
   scene.add( sptlight );
 
-
   // This allows the user to move the camera with the mouse
   controls = new THREE.TrackballControls( camera );
   controls.rotateSpeed = 1.0;
@@ -49,8 +43,6 @@ function init() {
   controls.noPan = false;
   controls.staticMoving = true;
   controls.dynamicDampingFactor = 0.3;
-
-
 
   // Create a sphere geometry with materials and Mesh
   // var geometry = new THREE.TetrahedronGeometry( 95, 3);
@@ -113,10 +105,10 @@ function init() {
 
   // Renders everything
 
-  renderer = new THREE.WebGLRenderer( { antialias: true } );
-  renderer.setClearColor( 0xb8e9f2);
+  renderer = new THREE.WebGLRenderer( { alpha: true } );
+  renderer.setClearColor( 0xb8e9f2, 0);
   renderer.setPixelRatio( window.devicePixelRatio );
-  renderer.setSize( WIDTH, HEIGHT );
+  renderer.setSize( WIDTH, HEIGHT ); //set the width and height of rendered
   renderer.sortObjects = false;
   renderer.shadowMap.enabled = true;
   container.appendChild( renderer.domElement );
@@ -140,12 +132,12 @@ function animate() {
   render();
 }
 
-
-
 // Create the render function
 function render() {
   controls.update();
   sphere.rotation.x += 0.05;
-  sphere.rotation.y += 0.1;
+  sphere.rotation.y += 0.01;
+  sphere.position.x +=x_velocity*2
+  sphere.position.y +=y_velocity*2
   renderer.render( scene, camera );
 }

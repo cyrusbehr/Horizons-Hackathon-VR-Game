@@ -13,7 +13,6 @@ document.getElementById("snap").addEventListener("click", function() {
 
 });
 
-
 var colors = new tracking.ColorTracker(['magenta']);
 colors.setMinDimension(5);
 colors.setMinGroupSize(10)
