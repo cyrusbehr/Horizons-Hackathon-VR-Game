@@ -1,5 +1,5 @@
 var container, stats;
-var camera, controls, scene, renderer;
+var camera, controls, scene, renderer, sphere;
 var objects = [];
 
 init();
@@ -61,7 +61,7 @@ function init() {
     specular:0xffffff,
     shading:THREE.FlatShading
   });
-  var sphere = new THREE.Mesh( geometry, material );
+  sphere = new THREE.Mesh( geometry, material );
   sphere.position.x = 0
   sphere.position.z = 0
   sphere.position.y = -150
@@ -70,13 +70,13 @@ function init() {
   scene.add( sphere );
 
   // Create a rectangle geometry
-  var geometry = new THREE.BoxGeometry(25, 4, 5);
+  var geometry = new THREE.BoxGeometry(30, 7, 7);
 
   // For loop that creates each object on the first row with a random color
   for ( var i = 0; i < 12; i ++ ) {
     var material = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff } )
     var object = new THREE.Mesh( geometry, material);
-    object.position.x = -150 + (i*28);
+    object.position.x = -170 + (i*34);
     object.position.y = 150;
     object.position.z = 0;
     object.castShadow = true;
@@ -89,7 +89,7 @@ function init() {
   for ( var i = 0; i < 10; i ++ ) {
     var material = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff } )
     var object = new THREE.Mesh( geometry, material);
-    object.position.x = -135 + (i*30);
+    object.position.x = -135 + (i*34);
     object.position.y = 110;
     object.position.z = 0;
     object.castShadow = true;
@@ -102,7 +102,7 @@ function init() {
   for ( var i = 0; i < 12; i ++ ) {
     var material = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff } )
     var object = new THREE.Mesh( geometry, material);
-    object.position.x = -150 + (i*28);
+    object.position.x = -170 + (i*34);
     object.position.y = 70;
     object.position.z = 0;
     object.castShadow = true;
@@ -145,5 +145,7 @@ function animate() {
 // Create the render function
 function render() {
   controls.update();
+  sphere.rotation.x += 0.05;
+  sphere.rotation.y += 0.1;
   renderer.render( scene, camera );
 }
