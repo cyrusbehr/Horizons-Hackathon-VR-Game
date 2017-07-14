@@ -34,8 +34,8 @@ color_tracker.on('track', function(event) {
 
 //When the window initially loads
 window.onload = function() {
-  tracking.track('#tracking_video', color_tracker, {camera: true});
   setInterval(updateVariables, update_rate); //Render the game
+  tracking.track('#tracking_video', color_tracker, {camera: true});
   // TODO: run this set interval function only after the user has pressed start game
 }
 
@@ -45,22 +45,20 @@ var updateVariables = () => {
     game_canvas_context = game_canvas.getContext('2d');
     canvas_video = document.getElementById('canvas_video');
 
-
-    console.log('run');
-    var video_element = document.getElementById('canvas_video'); // TODO: remove if it doeasn't bvreak code
+    var video_element = document.getElementById('tracking_video'); // TODO: remove if it doeasn't bvreak code
 
     video_width = video_element.videoWidth;
     video_height = video_element.videoHeight;
 
-    video_element.setAttribute('width', video_width * video_ratio);
-    video_element.setAttribute('height', video_height * video_ratio);
+    video_element.setAttribute('width', video_width * video_ratio );
+    video_element.setAttribute('height', video_height * video_ratio );
 
     game_canvas.setAttribute('width', video_width * canvas_ratio);
     game_canvas.setAttribute('height', video_height * canvas_ratio);
 
-    var tracking_video_element = document.getElementById('tracking_video');
-    tracking_video_element.setAttribute('width', video_width * video_ratio / ratio);
-    tracking_video_element.setAttribute('height', video_height * video_ratio / ratio);
+    // var tracking_video_element = document.getElementById('tracking_video');
+    // tracking_video_element.setAttribute('width', video_width * video_ratio);
+    // tracking_video_element.setAttribute('height', video_height * video_ratio);
   }
 
 
@@ -97,15 +95,13 @@ var updateVariables = () => {
   game_canvas_context.closePath();
 
   //DEBUGGING: displays the paddle
-  // cc.fillStyle='red';
-  // cc.fillRect(paddle_x_position, paddle_y_position, paddle_width, paddle_height);
+  game_canvas_context.fillStyle='red';
+  game_canvas_context.fillRect(paddle_x_position, paddle_y_position, paddle_width, paddle_height);
 }
 
 // Renders a picture of the video the the canvas
 var renderImage = ()  => {
   // TODO: change this to Donovans new method
-  console.log(game_canvas)
-  console.log(game_canvas_context)
 
   game_canvas_context.drawImage(canvas_video, 0, 0, video_width * canvas_ratio, video_height * canvas_ratio);
   game_canvas_context.restore();

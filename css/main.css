@@ -2,6 +2,6 @@
   padding: 0;
   margin: 0;
 }
-#canvas{
+#game_canvas{
   transform: rotateY(180deg);
 }

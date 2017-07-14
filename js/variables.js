@@ -28,9 +28,11 @@ var update_rate = 5;
 
 var video_width;
 var video_height;
-var video_ratio = 0.2;
-var canvas_ratio = 0.5;
-var ratio = 3.2; //ratio between tracking video and canvas size
+var canvas_ratio = 1;
+var ratio = 10;
+var video_ratio = canvas_ratio / ratio;
+
+ //ratio between tracking video and canvas size
 
 
 //create brick array
