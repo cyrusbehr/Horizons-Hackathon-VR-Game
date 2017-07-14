@@ -36,7 +36,7 @@ for(var i=0; i<brickColumnCount; i++) {
 
 var update_rate = 5;
 
-var ratio = 3.2; //ratio between tracking video and canvas size
+var ratio; //ratio between tracking video and canvas size
 
 var video_width;
 var video_height;
