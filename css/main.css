@@ -4,12 +4,15 @@
 }
 #canvas{
   transform: rotateY(180deg);
+  position: absolute;
+  left: 240px;
+  top: 20px;
 }
 
 #my_velocityvideo{
   position: absolute;
-  top:0;
-  left:0;
+  top:50px;
+  left:500px;
   z-index: -1;
 }
 

@@ -82,7 +82,7 @@ var update = () => {
 
 // RENDERS THE IMAGE
 var renderImage = ()  => {
-  context.drawImage(video, 0, 0, 640, 480);
+  context.drawImage(video, 0, 0, 960, 720);
   context.restore();
 }
 

@@ -32,7 +32,7 @@ for(c=0; c<brickColumnCount; c++) {
     }
 }
 
-var ratio = 3.2; //ratio between tracking video and canvas size
+var ratio = 4.8; //ratio between tracking video and canvas size
 
 var updateRate = 5; //updates every 50 milliseconds
 
