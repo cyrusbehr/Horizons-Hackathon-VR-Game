@@ -1,5 +1,5 @@
 var container, stats;
-var camera, scene, renderer;
+var camera, controls, scene, renderer;
 var objects = [];
 
 init();
@@ -40,15 +40,15 @@ function init() {
   scene.add( sptlight );
 
 
-  // // This allows the user to move the camera with the mouse
-  // controls = new THREE.TrackballControls( camera );
-  // controls.rotateSpeed = 1.0;
-  // controls.zoomSpeed = 1.2;
-  // controls.panSpeed = 0.8;
-  // controls.noZoom = false;
-  // controls.noPan = false;
-  // controls.staticMoving = true;
-  // controls.dynamicDampingFactor = 0.3;
+  // This allows the user to move the camera with the mouse
+  controls = new THREE.TrackballControls( camera );
+  controls.rotateSpeed = 1.0;
+  controls.zoomSpeed = 1.2;
+  controls.panSpeed = 0.8;
+  controls.noZoom = false;
+  controls.noPan = false;
+  controls.staticMoving = true;
+  controls.dynamicDampingFactor = 0.3;
 
 
 
@@ -136,14 +136,14 @@ function onWindowResize() {
 
 // Create the animate function
 function animate() {
-  requestAnimationFrame( animate );
-  renderer.render( scene, camera );
+  requestAnimationFrame( animate )
+  render();
 }
 
 
 
 // Create the render function
-// function render() {
-//   // controls.update();
-//   renderer.render( scene, camera );
-// }
+function render() {
+  controls.update();
+  renderer.render( scene, camera );
+}
