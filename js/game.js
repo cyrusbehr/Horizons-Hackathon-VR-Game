@@ -10,12 +10,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
 // This functions runs when we press the capture button
 document.getElementById("snap").addEventListener("click", function() {
-  //obtain the image dd hoata
-  var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-  var colorObj = getAverageColor(imageData.data, 0, 0, 150, 150);
-  console.log(colorObj);
-  // TODO: ensure that the colors are being obtained at the correct corner, and that the transform does not affect it
-  // TODO: move the region to the center bottom
+
 });
 
 
@@ -93,33 +88,33 @@ var renderImage = ()  => {
 }
 
 function collisionDetection() {
-    for(c=0; c<brickColumnCount; c++) {
-        for(r=0; r<brickRowCount; r++) {
-            var b = bricks[c][r];
-            if(b.status == 1) {
-                if(ball_x_position > b.x && ball_x_position < b.x+brickWidth && ball_y_position > b.y && ball_y_position < b.y+brickHeight) {
-                    y_velocity = -y_velocity;
-                    b.status = 0;
-                }
-            }
+  for(c=0; c<brickColumnCount; c++) {
+    for(r=0; r<brickRowCount; r++) {
+      var b = bricks[c][r];
+      if(b.status == 1) {
+        if(ball_x_position > b.x && ball_x_position < b.x+brickWidth && ball_y_position > b.y && ball_y_position < b.y+brickHeight) {
+          y_velocity = -y_velocity;
+          b.status = 0;
         }
+      }
     }
+  }
 }
 
 function drawBricks() {
   for(let c=0; c<brickColumnCount; c++) {
     for(let r=0; r<brickRowCount; r++) {
       if(bricks[c][r].status == 1) {
-                     var brickX = (c*(brickWidth+brickPaddingX))+brickOffsetLeft;
-                     var brickY = (r*(brickHeight+brickPaddingY))+brickOffsetTop;
-                     bricks[c][r].x = brickX;
-                     bricks[c][r].y = brickY;
-                     context.beginPath();
-                     context.rect(brickX, brickY, brickWidth, brickHeight);
-                     context.fillStyle = "#0095DD";
-                     context.fill();
-                     context.closePath();
-                 }
+        var brickX = (c*(brickWidth+brickPaddingX))+brickOffsetLeft;
+        var brickY = (r*(brickHeight+brickPaddingY))+brickOffsetTop;
+        bricks[c][r].x = brickX;
+        bricks[c][r].y = brickY;
+        context.beginPath();
+        context.rect(brickX, brickY, brickWidth, brickHeight);
+        context.fillStyle = "#0095DD";
+        context.fill();
+        context.closePath();
+      }
     }
   }
 }
