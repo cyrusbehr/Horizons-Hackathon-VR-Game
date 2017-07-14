@@ -18,7 +18,10 @@ function init() {
 
   // Create a camera, zoom it out from the model a bit
   camera = new THREE.PerspectiveCamera( 90, WIDTH / HEIGHT, 1, 10000 );
-  camera.position.z = 800;
+  camera.position.z = 200;
+  camera.position.y = -25;
+
+
 
 
 
@@ -28,7 +31,7 @@ function init() {
 
   // Create a spot light
   var sptlight = new THREE.SpotLight( 0xffffff, 0.85 );
-  sptlight.position.set( -800, 500, 2000 );
+  sptlight.position.set( 0, -2500, 10000 );
   sptlight.castShadow = true;
   sptlight.shadow = new THREE.LightShadow( new THREE.PerspectiveCamera( 50, 1, 200, 10000 ) );
   sptlight.shadow.bias = - 0.00022;
@@ -51,7 +54,7 @@ function init() {
 
   // Create a sphere geometry with materials and Mesh
   // var geometry = new THREE.TetrahedronGeometry( 95, 3);
-  var geometry = new THREE.SphereGeometry(100, 17, 8, 0);
+  var geometry = new THREE.TetrahedronGeometry(13, 3);
   var material = new THREE.MeshPhongMaterial({
     color: 0xf25346,
     shininess:0,
@@ -59,21 +62,22 @@ function init() {
     shading:THREE.FlatShading
   });
   var sphere = new THREE.Mesh( geometry, material );
+  sphere.position.x = 0
   sphere.position.z = 0
-  sphere.position.y = -525
+  sphere.position.y = -150
   sphere.castShadow = true;
   sphere.receiveShadow = true;
   scene.add( sphere );
 
   // Create a rectangle geometry
-  var geometry = new THREE.BoxGeometry( 200, 25, 40 );
+  var geometry = new THREE.BoxGeometry(25, 4, 5);
 
   // For loop that creates each object on the first row with a random color
   for ( var i = 0; i < 12; i ++ ) {
     var material = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff } )
     var object = new THREE.Mesh( geometry, material);
-    object.position.x = -1250 + (i*215);
-    object.position.y = 625;
+    object.position.x = -150 + (i*28);
+    object.position.y = 150;
     object.position.z = 0;
     object.castShadow = true;
     object.receiveShadow = true;
@@ -85,8 +89,8 @@ function init() {
   for ( var i = 0; i < 10; i ++ ) {
     var material = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff } )
     var object = new THREE.Mesh( geometry, material);
-    object.position.x = -1100 + (i*215);
-    object.position.y = 500;
+    object.position.x = -135 + (i*30);
+    object.position.y = 110;
     object.position.z = 0;
     object.castShadow = true;
     object.receiveShadow = true;
@@ -98,8 +102,8 @@ function init() {
   for ( var i = 0; i < 12; i ++ ) {
     var material = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff } )
     var object = new THREE.Mesh( geometry, material);
-    object.position.x = -1250 + (i*215);
-    object.position.y = 375;
+    object.position.x = -150 + (i*28);
+    object.position.y = 70;
     object.position.z = 0;
     object.castShadow = true;
     object.receiveShadow = true;
@@ -133,11 +137,13 @@ function onWindowResize() {
 // Create the animate function
 function animate() {
   requestAnimationFrame( animate );
-  render();
-}
-
-// Create the render function
-function render() {
-  // controls.update();
   renderer.render( scene, camera );
 }
+
+
+
+// Create the render function
+// function render() {
+//   // controls.update();
+//   renderer.render( scene, camera );
+// }
