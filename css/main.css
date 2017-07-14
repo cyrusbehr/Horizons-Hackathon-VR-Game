@@ -5,3 +5,10 @@
 #canvas{
   transform: rotateY(180deg);
 }
+
+#my_velocityvideo{
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: -1;
+}
