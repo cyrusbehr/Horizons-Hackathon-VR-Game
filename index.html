@@ -1,20 +1,34 @@
+<!-- TODO: Seperate into multiple files -->
+<!-- TODO: add bricks -->
 <!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Horizons Hackathon VR Game</title>
-<link rel="stylesheet" href="./css/main.css">
+  <title>tracking.js - first tracking</title>
+  <script src="./js/lib/tracking-min.js"></script>
+  <style media="screen">
+  *{
+    padding: 0;
+    margin: 0;
+  }
+  #canvas{
+    transform: rotateY(180deg);
+  }
+  </style>
 </head>
 <body>
-  <!-- video used to render large image -->
-  <video style="display: none" id="canvas_video"autoplay></video>
-  <!-- canvas where the video is rendered -->
-  <canvas id="game_canvas"></canvas>
-  <!-- video in which the tracking is done -->
-  <video id="tracking_video" preload autoplay loop muted></video>
 
-  <script src="./js/lib/tracking-min.js"></script>
+  <!-- video used to render large image -->
+  <video style="display: none" id="video" width="10" height="10" autoplay></video>
+  <button id="snap">Take picture</button>
+  <!-- canvas where the video is rendered -->
+  <canvas id="canvas" width="640" height="480"></canvas>
+  <!-- video in which the tracking is done -->
+  <video id="my_velocityvideo" width="200" height="150" preload autoplay loop muted></video>
+
   <script src="./js/variables.js"></script>
+  <script src="./js/computer-vision-helper.js"></script>
   <script src="./js/game.js"></script>
+  <!-- the script used of image tracking -->s
 </body>
 </html>

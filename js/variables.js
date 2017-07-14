@@ -1,6 +1,5 @@
-var game_canvas;
-var game_canvas_context;
-var canvas_video;
+var c, cc;
+
 // paddle
 var paddle_x_position = 0;
 var paddle_height = 30;
@@ -24,22 +23,20 @@ var brickPaddingY = 10;
 var brickOffsetTop = 20;
 var brickOffsetLeft = 40;
 
-var update_rate = 5;
-
-var video_width;
-var video_height;
-var canvas_ratio = 1;
-var ratio = 10;
-var video_ratio = canvas_ratio / ratio;
-
- //ratio between tracking video and canvas size
-
-
 //create brick array
 var bricks = [];
-for(var i=0; i<brickColumnCount; i++) {
-    bricks[i] = [];
-    for(var j=0; j<brickRowCount; j++) {
-        bricks[i][j] = { x: 0, y: 0 };
+for(c=0; c<brickColumnCount; c++) {
+    bricks[c] = [];
+    for(r=0; r<brickRowCount; r++) {
+        bricks[c][r] = { x: 0, y: 0 };
     }
 }
+
+var ratio = 3.2; //ratio between tracking video and canvas size
+
+var updateRate = 5; //updates every 50 milliseconds
+
+// Obtain video elements
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var video = document.getElementById('video');
