@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Horizons Hackathon VR Game</title>
+<link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <!-- video used to render large image -->
+  <video style="display: none" id="canvas_video"autoplay></video>
+  <!-- canvas where the video is rendered -->
+  <canvas id="game_canvas"></canvas>
+  <!-- video in which the tracking is done -->
+  <video id="tracking_video" preload autoplay loop muted></video>
+
+  <script src="./js/lib/tracking-min.js"></script>
+  <script src="./js/variables.js"></script>
+  <script src="./js/computer-vision-helper.js"></script>
+  <script src="./js/game.js"></script>
+</body>
+</html>
