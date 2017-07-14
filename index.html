@@ -1,26 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Horizon's Hackathon</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<style>
-			body {
-				margin: 0px;
-				overflow: hidden;
-			}
-		</style>
-	</head>
-	<body>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Block Breaker Reborn</title>
+  <script src="./js/lib/tracking-min.js"></script>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <!-- video used to render large image -->
+  <video style="display: none" id="video" width="10" height="10" autoplay></video>
+  <!-- canvas where the video is rendered -->
+  <canvas id="canvas" width="640" height="480"></canvas>
+  <button id="snap">Take picture</button>
+  <!-- video in which the tracking is done -->
+  <video id="my_velocityvideo" width="200" height="150" preload autoplay loop muted></video>
 
-		<script src="js/lib/threelib/three.min.js"></script>
-		<script src="js/lib/threelib/DragControls.js"></script>
-		<script src="js/lib/threelib/TrackballControls.js"></script>
-    <script src="js/lib/threelib/OrbitControls.js"></script>
-		<script src="js/lib/threelib/stats.min.js"></script>
-    <script src="js/three-animations.js"></script>
-
-
-
-	</body>
+  <script src="./js/variables.js"></script>
+  <script src="./js/computer-vision-helper.js"></script>
+  <script src="./js/game.js"></script>
+</body>
+<script src="js/lib/threelib/three.min.js"></script>
+<script src="js/lib/threelib/DragControls.js"></script>
+<script src="js/lib/threelib/TrackballControls.js"></script>
+<script src="js/lib/threelib/OrbitControls.js"></script>
+<script src="js/lib/threelib/stats.min.js"></script>
+<script src="js/three-animations.js"></script>
 </html>
