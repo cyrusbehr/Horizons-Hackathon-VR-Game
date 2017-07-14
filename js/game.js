@@ -1,3 +1,5 @@
+
+
 // Access the users camera
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   // Not adding `{ audio: true }` since we only want video now
@@ -33,11 +35,36 @@ color_tracker.on('track', function(event) {
 //When the window initially loads
 window.onload = function() {
   tracking.track('#tracking_video', color_tracker, {camera: true});
-  setInterval(updateVariables, updateRate); //Render the game
+  setInterval(updateVariables, update_rate); //Render the game
   // TODO: run this set interval function only after the user has pressed start game
 }
 
 var updateVariables = () => {
+  if(!video_width || !video_height){
+    game_canvas = document.getElementById('game_canvas');
+    game_canvas_context = game_canvas.getContext('2d');
+    canvas_video = document.getElementById('canvas_video');
+
+
+    console.log('run');
+    var video_element = document.getElementById('canvas_video'); // TODO: remove if it doeasn't bvreak code
+
+    video_width = video_element.videoWidth;
+    video_height = video_element.videoHeight;
+
+    video_element.setAttribute('width', video_width * video_ratio);
+    video_element.setAttribute('height', video_height * video_ratio);
+
+    game_canvas.setAttribute('width', video_width * canvas_ratio);
+    game_canvas.setAttribute('height', video_height * canvas_ratio);
+
+    var tracking_video_element = document.getElementById('tracking_video');
+    tracking_video_element.setAttribute('width', video_width * video_ratio / ratio);
+    tracking_video_element.setAttribute('height', video_height * video_ratio / ratio);
+  }
+
+
+
   ball_x_position+=x_velocity;
   ball_y_position+=y_velocity
   if(ball_y_position<0 && y_velocity < 0) {
@@ -48,10 +75,10 @@ var updateVariables = () => {
   }
 
   // TODO: Remove this condition. When the vall hits the bottom, loose a life
-  if(ball_y_position>c.height && y_velocity > 0) {
+  if(ball_y_position>game_canvas.height && y_velocity > 0) {
     y_velocity=-y_velocity;
   }
-  if(ball_x_position > c.width  && x_velocity > 0){
+  if(ball_x_position > game_canvas.width  && x_velocity > 0){
     x_velocity = -x_velocity;
   }
 
@@ -77,8 +104,11 @@ var updateVariables = () => {
 // Renders a picture of the video the the canvas
 var renderImage = ()  => {
   // TODO: change this to Donovans new method
-  game_canvas.drawImage(video, 0, 0, 640, 480);
-  game_canvas.restore();
+  console.log(game_canvas)
+  console.log(game_canvas_context)
+
+  game_canvas_context.drawImage(canvas_video, 0, 0, video_width * canvas_ratio, video_height * canvas_ratio);
+  game_canvas_context.restore();
 }
 
 // TODO: Replace this with jathersons brick rendering code

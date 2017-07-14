@@ -1,7 +1,6 @@
-var game_canvas = document.getElementById('game_canvas');
-var game_canvas_context = game_canvas.getContext('2d');
-var canvas_video = document.getElementById('canvas_video');
-
+var game_canvas;
+var game_canvas_context;
+var canvas_video;
 // paddle
 var paddle_x_position = 0;
 var paddle_height = 30;
@@ -25,6 +24,15 @@ var brickPaddingY = 10;
 var brickOffsetTop = 20;
 var brickOffsetLeft = 40;
 
+var update_rate = 5;
+
+var video_width;
+var video_height;
+var video_ratio = 0.2;
+var canvas_ratio = 0.5;
+var ratio = 3.2; //ratio between tracking video and canvas size
+
+
 //create brick array
 var bricks = [];
 for(var i=0; i<brickColumnCount; i++) {
@@ -33,10 +41,3 @@ for(var i=0; i<brickColumnCount; i++) {
         bricks[i][j] = { x: 0, y: 0 };
     }
 }
-
-var update_rate = 5;
-
-var ratio; //ratio between tracking video and canvas size
-
-var video_width;
-var video_height;
