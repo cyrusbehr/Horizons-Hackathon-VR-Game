@@ -28,7 +28,7 @@ var bricks = [];
 for(c=0; c<brickColumnCount; c++) {
     bricks[c] = [];
     for(r=0; r<brickRowCount; r++) {
-        bricks[c][r] = { x: 0, y: 0 };
+         bricks[c][r] = { x: 0, y: 0, status: 1 };
     }
 }
 

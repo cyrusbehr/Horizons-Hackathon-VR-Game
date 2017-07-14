@@ -71,6 +71,7 @@ var update = () => {
   }
 
   renderImage();
+  collisionDetection();
   drawBricks();
 
   //create a sphere
@@ -79,7 +80,9 @@ var update = () => {
   context.fillStyle='green';
   context.fill();
   context.closePath();
-  context.fillStyle='red'; // can comment out when not debugging
+
+  //DEBUGGING:
+  context.fillStyle='red';
   context.fillRect(paddle_x_position, paddle_y_position, paddle_width, paddle_height);
 }
 
@@ -89,18 +92,34 @@ var renderImage = ()  => {
   context.restore();
 }
 
+function collisionDetection() {
+    for(c=0; c<brickColumnCount; c++) {
+        for(r=0; r<brickRowCount; r++) {
+            var b = bricks[c][r];
+            if(b.status == 1) {
+                if(ball_x_position > b.x && ball_x_position < b.x+brickWidth && ball_y_position > b.y && ball_y_position < b.y+brickHeight) {
+                    y_velocity = -y_velocity;
+                    b.status = 0;
+                }
+            }
+        }
+    }
+}
+
 function drawBricks() {
   for(let c=0; c<brickColumnCount; c++) {
     for(let r=0; r<brickRowCount; r++) {
-      var brickX = (c*(brickWidth+brickPaddingX))+brickOffsetLeft;
-      var brickY = (r*(brickHeight+brickPaddingY))+brickOffsetTop;
-      bricks[c][r].x = brickX;
-      bricks[c][r].y = brickY;
-      context.beginPath();
-      context.rect(brickX, brickY, brickWidth, brickHeight);
-      context.fillStyle = "#0095DD";
-      context.fill();
-      context.closePath();
+      if(bricks[c][r].status == 1) {
+                     var brickX = (c*(brickWidth+brickPaddingX))+brickOffsetLeft;
+                     var brickY = (r*(brickHeight+brickPaddingY))+brickOffsetTop;
+                     bricks[c][r].x = brickX;
+                     bricks[c][r].y = brickY;
+                     context.beginPath();
+                     context.rect(brickX, brickY, brickWidth, brickHeight);
+                     context.fillStyle = "#0095DD";
+                     context.fill();
+                     context.closePath();
+                 }
     }
   }
 }
