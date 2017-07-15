@@ -60,7 +60,6 @@ var update = () => {
   }
 
   renderImage();
-  collisionDetection();
   colDetection();
   // drawBricks();
 
@@ -82,40 +81,30 @@ var renderImage = ()  => {
   context.restore();
 }
 
-
-
-function collisionDetection() {
-  for(let c=0; c<brickColumnCount; c++) {
-    for(let r=0; r<brickRowCount; r++) {
-      var b = bricks[c][r];
-      if(b.status == 1) {
-        if(ball_x_position > b.x && ball_x_position < b.x+brickWidth && ball_y_position > b.y && ball_y_position < b.y+brickHeight) {
-          y_velocity = -y_velocity;
-          b.status = 0;
-        }
-      }
-    }
-  }
-}
-
 function colDetection() {
   for(let i = 0 ; i < brickArray.length; i++ ){
     var brick = brickArray[i]
-    // if(brick.status === 1){
+    if(brick.status === 1){
     if(brick.row === 3 ) {
-      var brickX = brick.position.x*1.65+460;
+      var brickX = -brick.position.x*1.65+450;
+    }else if (brick.row === 2 ){
+      var brickX = -brick.position.x*1.6+440;
     }else{
-      var brickX = brick.position.x*1.6+444;
+      var brickX = -brick.position.x*1.6+450;
     }
       let brickY = -brick.position.y*1.5+360
-      drawItem(brickX, brickY)
       if(ball_x_position > brickX && ball_x_position < brickX + brickWidth && ball_y_position > brickY && ball_y_position < brickY+brickHeight) {
           y_velocity = -y_velocity;
           brickArray[i].status = 0;
+          removeEntity(brick)
           console.log('There was a collision');
     }
-  // }
+}}
 }
+
+function removeEntity(object) {
+    var selectedObject = scene.getObjectByName(object.name);
+    scene.remove( selectedObject );
 }
 
 function drawItem(x,y) {
@@ -126,24 +115,4 @@ function drawItem(x,y) {
         context.fill();
         context.closePath();
 
-}
-
-
-
-function drawBricks() {
-  for(let c=0; c<brickColumnCount; c++) {
-    for(let r=0; r<brickRowCount; r++) {
-      if(bricks[c][r].status == 1) {
-        var brickX = (c*(brickWidth+brickPaddingX))+brickOffsetLeft;
-        var brickY = (r*(brickHeight+brickPaddingY))+brickOffsetTop;
-        bricks[c][r].x = brickX;
-        bricks[c][r].y = brickY;
-        context.beginPath();
-        context.rect(brickX, brickY, brickWidth, brickHeight);
-        context.fillStyle = "#0095DD";
-        context.fill();
-        context.closePath();
-      }
-    }
-  }
 }

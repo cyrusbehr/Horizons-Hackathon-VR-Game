@@ -3,6 +3,7 @@ var camera, controls, scene, renderer, sphere;
 var brickArray = [];
 var topPosition = 165;
 var xPadding = 46;
+var objectName = 0;
 init();
 animate();
 
@@ -76,6 +77,9 @@ function init() {
     object.receiveShadow = true;
     object.status = 1;
     object.row = 1;
+    object.name = objectName.toString();
+    objectName++;
+    console.log(object)
     scene.add( object );
     brickArray.push( object );
   }
@@ -91,6 +95,9 @@ function init() {
     object.receiveShadow = true;
     object.status = 1;
     object.row = 2;
+    object.name = objectName.toString();
+    objectName++;
+    console.log(object)
     scene.add( object );
     brickArray.push( object );
   }
@@ -106,6 +113,9 @@ function init() {
     object.receiveShadow = true;
     object.status = 1;
     object.row = 3;
+    object.name = objectName.toString();
+    objectName++;
+    console.log(object)
     scene.add( object );
     brickArray.push( object );
   }
@@ -144,7 +154,10 @@ function render() {
   controls.update();
   sphere.rotation.x += 0.05;
   sphere.rotation.y += 0.01;
-  sphere.position.x = -(ball_x_position - 500)/1.9
-  sphere.position.y = -(ball_y_position - 460)/1.9
+
+    sphere.position.x = -(ball_x_position/1.85)+280
+    sphere.position.y = -(ball_y_position/1.85)+220
+
+
   renderer.render( scene, camera );
 }
