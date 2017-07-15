@@ -9,9 +9,9 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 }
 
 // This functions runs when we press the capture button
-document.getElementById("snap").addEventListener("click", function() {
-
-});
+// document.getElementById("snap").addEventListener("click", function() {
+//     setInterval(update, updateRate);
+// });
 
 var colors = new tracking.ColorTracker(['magenta']);
 colors.setMinDimension(5);
@@ -39,7 +39,7 @@ colors.on('track', function(event) {
 //WHEN THE WINDOW LOADS
 window.onload = function() {
   tracking.track('#my_velocityvideo', colors, {camera: true});
-  setInterval(update, updateRate); // RUN THE RENDER FUNCTION EVERY 50ms
+  // setInterval(update, updateRate); // RUN THE RENDER FUNCTION EVERY 50ms
 }
 
 //THE UPDATE SCREEN FUNCTION
