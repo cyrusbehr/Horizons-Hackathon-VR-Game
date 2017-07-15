@@ -1,4 +1,4 @@
-# &lt;< BREAKR />&gt; Horizons Hackathon Submission
+# BREAKR - Horizons Hackathon Submission
 
 ## Deployment
 
