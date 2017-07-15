@@ -10,7 +10,6 @@ var movementSpeed = 80;
 var totalObjects = 1000;
 var objectSize = 10;
 var sizeRandomness = 4000;
-/////////////////////////////////
 var dirs = [];
 var parts = [];
 
@@ -106,6 +105,7 @@ function init() {
     object.status = 1;
     object.row = 1;
     object.name = objectName.toString();
+    object.isPowerup = 0;
     objectName++;
     scene.add( object );
     brickArray.push( object );
@@ -121,6 +121,7 @@ function init() {
     object.castShadow = true;
     object.receiveShadow = true;
     object.status = 1;
+    object.isPowerup = 0;
     object.row = 2;
     object.name = objectName.toString();
     objectName++;
@@ -137,6 +138,7 @@ function init() {
     object.position.z = 0;
     object.castShadow = true;
     object.receiveShadow = true;
+    object.isPowerup = 0;
     object.status = 1;
     object.row = 3;
     object.name = objectName.toString();
@@ -211,7 +213,8 @@ function ExplodeAnimation(x,y) {
 function addRow () {
   var geometry = new THREE.BoxGeometry(40, 10, 8);
   for ( var i = 0; i < 12; i ++ ) {
-    if(Math.random() < 0.7 ){
+    const num = Math.random();
+    if(num < 0.7 ){
       var material = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff } )
       var object = new THREE.Mesh( geometry, material);
       object.position.x = -252 + (i*xPadding);
@@ -221,13 +224,28 @@ function addRow () {
       object.receiveShadow = true;
       object.status = 1;
       object.row = 1;
+      object.isPowerup = 0;
       object.name = objectName.toString();
       objectName++;
       // console.log(object)
       scene.add( object );
       brickArray.push( object );
+    } else if (num < 0.8){
+      let geometry = new THREE.TorusGeometry( 10, 3, 16, 100 );
+      let material = new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } );
+      let torus = new THREE.Mesh( geometry, material );
+      torus.position.x = -252 + (i*xPadding);
+      torus.position.y = topPosition + 60;
+      torus.position.z = 0;
+      torus.rotation.z = 0.5;
+      torus.status = 1;
+      torus.isPowerup = 1;
+      torus.name = objectName.toString();
+      brickArray.push( torus );
+      scene.add( torus );
     }
   }
+
 }
 
 // Create the animate function
