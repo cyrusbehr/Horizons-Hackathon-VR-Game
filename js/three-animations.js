@@ -17,17 +17,9 @@ var parts = [];
 init();
 animate();
 
-document.getElementById("snap").addEventListener("click", function() {
-    init();
-    animate();
-    setInterval(update, updateRate);
-    document.getElementsByClassName('game_screen')[0].style.display = "block";
-    document.getElementsByClassName('start_game_menu')[0].setAttribute("style", "display:none");
-});
 
 function init() {
   container = document.createElement( 'div' );
-  container.className = "threejs"
   document.body.appendChild( container );
 
   // Create the scene and set the scene size
@@ -97,7 +89,6 @@ function init() {
     object.row = 1;
     object.name = objectName.toString();
     objectName++;
-    console.log(object)
     scene.add( object );
     brickArray.push( object );
   }
@@ -115,7 +106,6 @@ function init() {
     object.row = 2;
     object.name = objectName.toString();
     objectName++;
-    console.log(object)
     scene.add( object );
     brickArray.push( object );
   }
@@ -133,7 +123,6 @@ function init() {
     object.row = 3;
     object.name = objectName.toString();
     objectName++;
-    console.log(object)
     scene.add( object );
     brickArray.push( object );
   }
@@ -199,8 +188,6 @@ function ExplodeAnimation(x,y) {
   }
 
 }
-
-
 
 // Create the animate function
 function animate() {
