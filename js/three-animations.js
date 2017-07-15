@@ -57,7 +57,7 @@ function init() {
   sphere = new THREE.Mesh( geometry, material );
   sphere.position.x = 0
   sphere.position.z = 0
-  sphere.position.y = -150
+  sphere.position.y = 0
   sphere.castShadow = true;
   sphere.receiveShadow = true;
   scene.add( sphere );
@@ -138,7 +138,7 @@ function render() {
   controls.update();
   sphere.rotation.x += 0.05;
   sphere.rotation.y += 0.01;
-  sphere.position.x +=x_velocity*2
-  sphere.position.y +=y_velocity*2
+  // sphere.position.x +=x_velocity*1.5
+  // sphere.position.y +=y_velocity*1.5
   renderer.render( scene, camera );
 }

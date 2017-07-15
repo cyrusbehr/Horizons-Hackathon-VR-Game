@@ -7,8 +7,8 @@ var paddle_width = 200;
 var paddle_y_position = 430
 
 //ball
-var ball_x_position = 60;
-var ball_y_position = 50;
+var ball_x_position = 200;
+var ball_y_position = 200;
 var ball_dimension = 15;
 var x_velocity = 2;
 var y_velocity = 2;

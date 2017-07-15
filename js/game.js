@@ -44,8 +44,8 @@ window.onload = function() {
 
 //THE UPDATE SCREEN FUNCTION
 var update = () => {
-  ball_x_position+=x_velocity;
-  ball_y_position+=y_velocity
+  // ball_x_position+=x_velocity;
+  // ball_y_position+=y_velocity
   if(ball_y_position<0 && y_velocity < 0) {
     y_velocity=-y_velocity;
   }
