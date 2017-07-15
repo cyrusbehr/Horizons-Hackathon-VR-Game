@@ -1,6 +1,6 @@
 // gamestart btn animation
 document.getElementById('start_game_btn').addEventListener('mouseover', function(){
-  this.innerHTML = '<i class="fa fa-rocket" style="color:white"></i>';
+  this.innerHTML = '<i id="start_game_btn" class="fa fa-rocket" style="color:white"></i>';
 })
 
 document.getElementById('start_game_btn').addEventListener('mouseout', function(){
