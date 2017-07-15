@@ -82,16 +82,10 @@ var update = () => {
   colDetection();
   // drawBricks();
 
-  // create a sphere
-  // context.beginPath();
-  // context.arc(ball_x_position, ball_y_position, ball_dimension, 0, Math.PI*2, false)
-  // context.fillStyle='green';
-  // context.fill();
-  // context.closePath();
 
   //DEBUGGING:
-  context.fillStyle='red';
-  context.fillRect(paddle_x_position, paddle_y_position, paddle_width, paddle_height);
+  // context.fillStyle='red';
+  // context.fillRect(paddle_x_position, paddle_y_position, paddle_width, paddle_height);
 }
 
 // RENDERS THE IMAGE
