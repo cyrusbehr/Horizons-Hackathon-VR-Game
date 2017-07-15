@@ -65,9 +65,10 @@ var update = () => {
   }
   //bottom of the screen
   if(ball_y_position>canvas.height && y_velocity > 0) {
-    if(gameHasStarted){
-      gameOver();
-    }
+    y_velocity = -y_velocity;
+    // if(gameHasStarted){
+    //   gameOver();
+    // }
   }
   if(ball_x_position > canvas.width  && x_velocity > 0){
     x_velocity = -x_velocity;
