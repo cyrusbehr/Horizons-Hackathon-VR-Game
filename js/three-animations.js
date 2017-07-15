@@ -208,7 +208,7 @@ function addRow () {
       object.row = 1;
       object.name = objectName.toString();
       objectName++;
-      console.log(object)
+      // console.log(object)
       scene.add( object );
       brickArray.push( object );
     }
