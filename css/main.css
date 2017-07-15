@@ -49,7 +49,9 @@ body{
 
 .start_game_menu{
   position: absolute;
-  left: 500px;
+  width: 960px;
+  height: 720px;
+  left: 240px;
   margin: auto;
   background-color: #F0F0F0;
   padding: 30px;

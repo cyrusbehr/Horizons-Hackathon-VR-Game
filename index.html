@@ -9,7 +9,12 @@
 </head>
 <body>
 
-  <div class="game_screen" style="display:none">
+  <div class="score-container" style="display: none">
+    <h2 id="score" >Score: 0</h2>
+  </div>
+
+  <div class="game_screen" >
+
     <!-- video used to render large image -->
     <video style="display: none" id="video" width="10" height="10" autoplay></video>
     <!-- canvas where the video is rendered -->
@@ -19,7 +24,7 @@
   </div>
 
   <div class="start_game_menu">
-    <svg width="200px" height="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    <svg width="400px" height="400px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
   	 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
 
     <defs>
@@ -45,9 +50,6 @@
     <button id="start_game_btn">Start Game</button>
   </div>
 
-  <div class="score-container">
-    <h2 id="score" >Score: 0</h2>
-  </div>
 
   <script src="./js/variables.js"></script>
   <script src="./js/computer-vision-helper.js"></script>

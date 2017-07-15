@@ -20,7 +20,9 @@ animate();
 
 function init() {
   container = document.createElement( 'div' );
+  container.className = "threeElement"
   document.body.appendChild( container );
+  // document.getElementsByClassName("threeElement")[0].style.display = "none"
 
   // Create the scene and set the scene size
   scene = new THREE.Scene();
@@ -219,5 +221,6 @@ document.getElementById("start_game_btn").addEventListener('click', function(){
   gameHasStarted = true;
   document.getElementsByClassName("start_game_menu")[0].style.display = "none"
   document.getElementsByClassName("game_screen")[0].style.display = "block"
+  document.getElementsByClassName("score-container")[0].style.display = "block"
 
 })

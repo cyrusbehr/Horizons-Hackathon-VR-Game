@@ -56,7 +56,7 @@ var update = () => {
     x_velocity = -x_velocity;
   }
 
-  if(ball_y_position > paddle_y_position - -30 && (ball_y_position - paddle_y_position) < 50 && ball_x_position > paddle_x_position && ball_x_position < paddle_x_position + paddle_width && y_velocity > 0){
+  if(ball_y_position > paddle_y_position - 0 && (ball_y_position - paddle_y_position) < 50 && ball_x_position > paddle_x_position && ball_x_position < paddle_x_position + paddle_width && y_velocity > 0){
     y_velocity=-y_velocity;
   }
 
