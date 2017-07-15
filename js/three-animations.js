@@ -217,10 +217,10 @@ function render() {
   renderer.render( scene, camera);
 }
 
-// document.getElementById("start_game_btn").addEventListener('click', function(){
-//   gameHasStarted = true;
-//   document.getElementsByClassName("start_game_menu")[0].style.display = "none"
-//   document.getElementsByClassName("game_screen")[0].style.display = "block"
-//   document.getElementsByClassName("score-container")[0].style.display = "block"
-//
-// })
+document.getElementById("start_game_btn").addEventListener('click', function(){
+  gameHasStarted = true;
+  document.getElementsByClassName("start_game_menu")[0].style.display = "none"
+  document.getElementsByClassName("game_screen")[0].style.display = "block"
+  document.getElementsByClassName("score-container")[0].style.display = "block"
+
+})

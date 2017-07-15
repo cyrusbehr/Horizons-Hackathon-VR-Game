@@ -71,7 +71,7 @@ body{
 
   stroke-dasharray: 1400;
   stroke-dashoffset: 0;
-  animation: logo 2s ease-in-out forwards;
+  animation: logo 3s ease-in-out forwards;
 }
 
 #line1{
@@ -90,7 +90,7 @@ p{
 #start_game_btn{
   margin-top: 10px;
   border: 2px solid #016995;
-  height: 40px;
+  height: 50px;
   width: 150px;
   font-size: 20px;
   background-color: transparent;
@@ -101,6 +101,9 @@ p{
   }
   to{
     box-shadow: 0px 0px 0px 1px #016995;
+    width: 50px;
+    border-radius:50%;
+    background-color: #016995;
   }
 }
 #start_game_btn:hover{
