@@ -1,5 +1,7 @@
 var c, cc;
 
+var score = 0;
+
 // paddle
 var paddle_x_position = 0;
 var paddle_height = 30;

@@ -6,7 +6,7 @@
   transform: rotateY(180deg);
   position: absolute;
   left: 240px;
-  top: 20px;
+  top: 0px;
   box-shadow: -1px 15px 30px -12px gray;
 }
 

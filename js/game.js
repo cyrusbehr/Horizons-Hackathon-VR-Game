@@ -97,7 +97,7 @@ function colDetection() {
           y_velocity = -y_velocity;
           brickArray[i].status = 0;
           removeEntity(brick)
-          console.log('There was a collision');
+          updateScore(++score);
     }
 }}
 }
@@ -107,12 +107,6 @@ function removeEntity(object) {
     scene.remove( selectedObject );
 }
 
-function drawItem(x,y) {
-
-        context.beginPath();
-        context.rect(x, y, brickWidth, brickHeight);
-        context.fillStyle = "#0095DD";
-        context.fill();
-        context.closePath();
-
+function updateScore (newScore){
+  $("#score").text("Score: " + newScore)
 }
