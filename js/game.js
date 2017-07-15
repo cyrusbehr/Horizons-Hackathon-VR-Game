@@ -26,7 +26,7 @@ colors.on('track', function(event) {
     var maxRect;
     var maxRectArea = 0;
     event.data.forEach(function(rect) {
-      paddle_x_position = rect.x*ratio //Multiply by the scaling factor used for the screen size
+      paddle_x_position = rect.x*ratio-5; //Multiply by the scaling factor used for the screen size
       paddle_y_position = rect.y*ratio
 
       //determine where the top of the detected object is
@@ -72,12 +72,12 @@ var update = () => {
   colDetection();
   // drawBricks();
 
-  //create a sphere
-  // context.beginPath();
-  // context.arc(ball_x_position, ball_y_position, ball_dimension, 0, Math.PI*2, false)
-  // context.fillStyle='green';
-  // context.fill();
-  // context.closePath();
+  // create a sphere
+  context.beginPath();
+  context.arc(ball_x_position, ball_y_position, ball_dimension, 0, Math.PI*2, false)
+  context.fillStyle='green';
+  context.fill();
+  context.closePath();
 
   //DEBUGGING:
   context.fillStyle='red';
@@ -94,6 +94,9 @@ function colDetection() {
   for(let i = 0 ; i < brickArray.length; i++ ){
     var brick = brickArray[i]
     if(brick.status === 1){
+      if(gameHasStarted){
+        brickArray[i].position.y -= 0.03;
+      }
     if(brick.row === 3 ) {
       var brickX = -brick.position.x*1.65+450;
     }else if (brick.row === 2 ){
@@ -106,7 +109,12 @@ function colDetection() {
           y_velocity = -y_velocity;
           brickArray[i].status = 0;
           removeEntity(brick)
+          brickArray.splice(i, 1);
           parts.push(new ExplodeAnimation(brick.position.x, brick.position.y));
+          if(parts.length===30){
+            parts.splice(0,1)
+          }
+          // console.log(parts)
           updateScore(++score);
     }
 }}
