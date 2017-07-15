@@ -1,6 +1,6 @@
 var container, stats;
 var camera, controls, scene, renderer, sphere;
-var objects = [];
+var brickArray = [];
 var topPosition = 165;
 var xPadding = 46;
 init();
@@ -74,8 +74,9 @@ function init() {
     object.position.z = 0;
     object.castShadow = true;
     object.receiveShadow = true;
+    object.status = 1;
     scene.add( object );
-    objects.push( object );
+    brickArray.push( object );
   }
 
   // For loop that creates each object on the second row with a random color
@@ -87,8 +88,9 @@ function init() {
     object.position.z = 0;
     object.castShadow = true;
     object.receiveShadow = true;
+    object.status = 1;
     scene.add( object );
-    objects.push( object );
+    brickArray.push( object );
   }
 
   // For loop that creates each object on the third row with a random color
@@ -100,8 +102,10 @@ function init() {
     object.position.z = 0;
     object.castShadow = true;
     object.receiveShadow = true;
+      object.status = 1;
+    console.log(object)
     scene.add( object );
-    objects.push( object );
+    brickArray.push( object );
   }
 
   // Renders everything

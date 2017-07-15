@@ -16,7 +16,7 @@ var y_velocity = 2;
 //brick parameters
 var brickRowCount = 3;
 var brickColumnCount = 6;
-var brickWidth = 75;
+var brickWidth = 60;
 var brickHeight = 20;
 var brickPaddingX = 20;
 var brickPaddingY = 10;

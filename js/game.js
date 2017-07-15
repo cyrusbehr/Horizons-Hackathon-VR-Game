@@ -8,11 +8,6 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   });
 }
 
-// This functions runs when we press the capture button
-document.getElementById("snap").addEventListener("click", function() {
-
-});
-
 var colors = new tracking.ColorTracker(['magenta']);
 colors.setMinDimension(5);
 colors.setMinGroupSize(10)
@@ -69,11 +64,11 @@ var update = () => {
   drawBricks();
 
   //create a sphere
-  context.beginPath();
-  context.arc(ball_x_position, ball_y_position, ball_dimension, 0, Math.PI*2, false)
-  context.fillStyle='green';
-  context.fill();
-  context.closePath();
+  // context.beginPath();
+  // context.arc(ball_x_position, ball_y_position, ball_dimension, 0, Math.PI*2, false)
+  // context.fillStyle='green';
+  // context.fill();
+  // context.closePath();
 
   //DEBUGGING:
   // context.fillStyle='red';
@@ -86,9 +81,11 @@ var renderImage = ()  => {
   context.restore();
 }
 
+
+
 function collisionDetection() {
-  for(c=0; c<brickColumnCount; c++) {
-    for(r=0; r<brickRowCount; r++) {
+  for(let c=0; c<brickColumnCount; c++) {
+    for(let r=0; r<brickRowCount; r++) {
       var b = bricks[c][r];
       if(b.status == 1) {
         if(ball_x_position > b.x && ball_x_position < b.x+brickWidth && ball_y_position > b.y && ball_y_position < b.y+brickHeight) {
@@ -98,6 +95,20 @@ function collisionDetection() {
       }
     }
   }
+}
+
+function colDetection() {
+  for(let i = 0 ; i < brickArray.length; i++ ){
+    var brick = brickArray[i]
+    if(brick.status === 1){
+      let brickX = brick.position.x;
+      let brickY = brick.position.y;
+      if(ball_x_position > brickX && ball_x_position < brickX + brickWidth && ball_y_position > brickY && ball_y_position < brickY+brickHeight) {
+          y_velocity = -y_velocity;
+          brickArray[i].status = 0;
+    }
+  }
+}
 }
 
 function drawBricks() {
