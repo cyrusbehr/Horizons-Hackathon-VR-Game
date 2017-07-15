@@ -165,8 +165,8 @@ function ExplodeAnimation(x,y) {
     geometry.vertices.push( vertex );
     dirs.push({x:(Math.random() * movementSpeed)-(movementSpeed/2),y:(Math.random() * movementSpeed)-(movementSpeed/2),z:(Math.random() * movementSpeed)-(movementSpeed/2)});
   }
-  var material = new THREE.ParticleBasicMaterial( { size: objectSize,  color: colors[Math.round(Math.random() * colors.length)] });
-  var particles = new THREE.ParticleSystem( geometry, material );
+  var material = new THREE.PointsMaterial( { size: objectSize,  color: colors[Math.round(Math.random() * colors.length)] });
+  var particles = new THREE.Points( geometry, material );
 
   this.object = particles;
   this.status = true;
