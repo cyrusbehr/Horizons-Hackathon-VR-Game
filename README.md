@@ -1,4 +1,4 @@
-# <BREAKR/> Horizons Hackathon Submission
+# &lt;<BREAKR/>&gt; Horizons Hackathon Submission
 
 ## Deployment
 
@@ -26,4 +26,6 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Cyrus Behroozi**
+* **Donovan So**
+* **Jatharsan Paramthillairajah** 
