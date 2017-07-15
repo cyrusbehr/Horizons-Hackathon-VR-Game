@@ -3,7 +3,7 @@ var c, cc;
 // paddle
 var paddle_x_position = 0;
 var paddle_height = 30;
-var paddle_width = 200;
+var paddle_width = 300;
 var paddle_y_position = 430
 
 //ball

@@ -18,7 +18,7 @@ colors.on('track', function(event) {
     var maxRect;
     var maxRectArea = 0;
     event.data.forEach(function(rect) {
-      paddle_x_position = rect.x*ratio - paddle_width/4 //Multiply by the scaling factor used for the screen size
+      paddle_x_position = rect.x*ratio //Multiply by the scaling factor used for the screen size
       paddle_y_position = rect.y*ratio
 
       console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
@@ -55,7 +55,7 @@ var update = () => {
     x_velocity = -x_velocity;
   }
 
-  if(ball_y_position > paddle_y_position - 13 && (ball_y_position - paddle_y_position) < 50 && ball_x_position > paddle_x_position && ball_x_position < paddle_x_position + paddle_width && y_velocity > 0){
+  if(ball_y_position > paddle_y_position - -30 && (ball_y_position - paddle_y_position) < 50 && ball_x_position > paddle_x_position && ball_x_position < paddle_x_position + paddle_width && y_velocity > 0){
     y_velocity=-y_velocity;
   }
 
@@ -71,8 +71,8 @@ var update = () => {
   context.closePath();
 
   //DEBUGGING:
-  // context.fillStyle='red';
-  // context.fillRect(paddle_x_position, paddle_y_position, paddle_width, paddle_height);
+  context.fillStyle='red';
+  context.fillRect(paddle_x_position, paddle_y_position, paddle_width, paddle_height);
 }
 
 // RENDERS THE IMAGE

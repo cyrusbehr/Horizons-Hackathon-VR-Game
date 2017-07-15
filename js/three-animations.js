@@ -155,7 +155,7 @@ function render() {
   sphere.rotation.x += 0.05;
   sphere.rotation.y += 0.01;
 
-    sphere.position.x = -(ball_x_position/1.85)+280
+    sphere.position.x = -(ball_x_position/1.85)+270
     sphere.position.y = -(ball_y_position/1.85)+220
 
 
