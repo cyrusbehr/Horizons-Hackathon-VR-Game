@@ -1,3 +1,11 @@
+// gamestart btn animation
+document.getElementById('start_game_btn').addEventListener('mouseover', function(){
+  this.innerHTML = '<i class="fa fa-rocket" style="color:white"></i>';
+})
+
+document.getElementById('start_game_btn').addEventListener('mouseout', function(){
+  this.innerHTML = 'Start Game';
+})
 
 // Get access to the camera!
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -18,7 +26,7 @@ colors.on('track', function(event) {
     var maxRect;
     var maxRectArea = 0;
     event.data.forEach(function(rect) {
-      paddle_x_position = rect.x*ratio //Multiply by the scaling factor used for the screen size
+      paddle_x_position = rect.x*ratio-5; //Multiply by the scaling factor used for the screen size
       paddle_y_position = rect.y*ratio
 
       //determine where the top of the detected object is
@@ -33,7 +41,7 @@ colors.on('track', function(event) {
 //WHEN THE WINDOW LOADS
 window.onload = function() {
   tracking.track('#my_velocityvideo', colors, {camera: true});
-  // setInterval(update, updateRate); // RUN THE RENDER FUNCTION EVERY 50ms
+  setInterval(update, updateRate); // RUN THE RENDER FUNCTION EVERY 50ms
 }
 
 //THE UPDATE SCREEN FUNCTION
@@ -64,7 +72,7 @@ var update = () => {
   colDetection();
   // drawBricks();
 
-  //create a sphere
+  // create a sphere
   context.beginPath();
   context.arc(ball_x_position, ball_y_position, ball_dimension, 0, Math.PI*2, false)
   context.fillStyle='green';
@@ -86,6 +94,9 @@ function colDetection() {
   for(let i = 0 ; i < brickArray.length; i++ ){
     var brick = brickArray[i]
     if(brick.status === 1){
+      if(gameHasStarted){
+        brickArray[i].position.y -= 0.03;
+      }
     if(brick.row === 3 ) {
       var brickX = -brick.position.x*1.65+450;
     }else if (brick.row === 2 ){
@@ -98,7 +109,12 @@ function colDetection() {
           y_velocity = -y_velocity;
           brickArray[i].status = 0;
           removeEntity(brick)
+          brickArray.splice(i, 1);
           parts.push(new ExplodeAnimation(brick.position.x, brick.position.y));
+          if(parts.length===30){
+            parts.splice(0,1)
+          }
+          // console.log(parts)
           updateScore(++score);
     }
 }}

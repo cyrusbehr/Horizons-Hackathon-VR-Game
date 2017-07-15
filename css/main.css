@@ -1,29 +1,10 @@
-<<<<<<< HEAD
-@keyframes logo{
-  0% {
-    stroke-dashoffset: 1400;
-    opacity: 0;
-  }
-  100% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-}
-=======
-
->>>>>>> newMaster
-
 *{
   padding: 0;
   margin: 0;
 }
 
 html, body{
-<<<<<<< HEAD
-  height: 100%;
-=======
 height: 100%;
->>>>>>> newMaster
 }
 #canvas{
   transform: rotateY(180deg);
@@ -40,35 +21,19 @@ height: 100%;
   z-index: -1;
 }
 
-/*div{
-  position: absolute;
+div{
+  position: absolute;;
   top:20px;
   left:0px;
-}*/
-
-.game_screen{
-  position: absolute;
-  top:20px;
-  left:0px;
-  z-index: -1 !important;
 }
 
 body{
-
-  height: 50px;
-  width:100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  height: 1px;
   background: #74ebd5; /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #74ebd5, #acb6e5); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #74ebd5, #acb6e5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-<<<<<<< HEAD
-.start_game_menu{
-=======
 @keyframes logo{
   0% {
     stroke-dashoffset: 1400;
@@ -85,7 +50,6 @@ body{
   width: 960px;
   height: 720px;
   left: 240px;
->>>>>>> newMaster
   margin: auto;
   background-color: #F0F0F0;
   padding: 30px;
@@ -94,10 +58,7 @@ body{
   justify-content: center;
   align-items: center;
   box-shadow: -1px 15px 30px -12px gray;
-<<<<<<< HEAD
-=======
   z-index: 1;
->>>>>>> newMaster
 }
 
 .st0{
@@ -108,7 +69,7 @@ body{
 
   stroke-dasharray: 1400;
   stroke-dashoffset: 0;
-  animation: logo 2s ease-in-out forwards;
+  animation: logo 3s ease-in-out forwards;
 }
 
 #line1{
@@ -120,19 +81,14 @@ body{
 #line3{
   stroke: #05a
 }
-<<<<<<< HEAD
-
-#snap{
-=======
 p{
   font-size: 20px;
 }
 
 #start_game_btn{
   margin-top: 10px;
->>>>>>> newMaster
   border: 2px solid #016995;
-  height: 40px;
+  height: 50px;
   width: 150px;
   font-size: 20px;
   background-color: transparent;
@@ -143,12 +99,11 @@ p{
   }
   to{
     box-shadow: 0px 0px 0px 1px #016995;
+    width: 50px;
+    border-radius:50%;
+    background-color: #016995;
   }
 }
-<<<<<<< HEAD
-#snap:hover{
-=======
 #start_game_btn:hover{
->>>>>>> newMaster
   animation: btn_hover 0.3s ease-in-out forwards;
 }
