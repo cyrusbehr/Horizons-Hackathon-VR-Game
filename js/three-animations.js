@@ -19,7 +19,7 @@ function init() {
   // Create a camera, zoom it out from the model a bit
   camera = new THREE.PerspectiveCamera( 90, WIDTH / HEIGHT, 1, 10000 );
   camera.position.z = 200;
-  camera.position.y = -25;
+  camera.position.y = -35;
 
   // Create and ambient light
   ambLight = new THREE.AmbientLight( 0xcd950c )
@@ -138,7 +138,7 @@ function render() {
   controls.update();
   sphere.rotation.x += 0.05;
   sphere.rotation.y += 0.01;
-  sphere.position.x = -(ball_x_position - 510)/2
-  sphere.position.y = -(ball_y_position - 440)/2
+  sphere.position.x = -(ball_x_position - 500)/1.9
+  sphere.position.y = -(ball_y_position - 460)/1.9
   renderer.render( scene, camera );
 }
