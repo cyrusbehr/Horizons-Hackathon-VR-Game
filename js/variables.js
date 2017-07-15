@@ -45,3 +45,5 @@ var updateRate = 5; //updates every 50 milliseconds
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 var video = document.getElementById('video');
+
+var interval_id;
