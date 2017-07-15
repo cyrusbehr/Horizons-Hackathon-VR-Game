@@ -134,5 +134,8 @@ function updateScore (newScore){
 function gameOver(){
   clearInterval(interval_id);
   gameHasStarted = false;
-  alert('you lost');
+  document.getElementsByClassName("end_game_menu")[0].style.display = "flex";
+  document.getElementsByClassName("game_screen")[0].style.display = "none"
+  document.getElementsByClassName("score-container")[0].style.display = "none"
+  document.getElementById('result_score').textContent = score;
 }

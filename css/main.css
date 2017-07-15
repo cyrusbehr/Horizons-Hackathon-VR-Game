@@ -107,3 +107,38 @@ p{
 #start_game_btn:hover{
   animation: btn_hover 0.3s ease-in-out forwards;
 }
+
+.end_game_menu{
+  /*background-color: #F0F0F0;
+  width: 960px;
+  height: 720px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -1px 15px 30px -12px gray;*/
+
+  position: absolute;
+  width: 960px;
+  height: 720px;
+  left: 240px;
+  margin: auto;
+  background-color: #F0F0F0;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -1px 15px 30px -12px gray;
+  z-index: 1;
+}
+
+#try_again_btn{
+  border: 2px solid #FE5C5C;
+  height: 40px;
+  width: 150px;
+  font-size: 20px;
+  background-color: transparent;
+  color: #FE5C5C
+}
