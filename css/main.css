@@ -48,6 +48,8 @@ body{
 }
 
 .start_game_menu{
+  position: absolute;
+  left: 500px;
   margin: auto;
   background-color: #F0F0F0;
   padding: 30px;
