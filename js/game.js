@@ -10,6 +10,10 @@ document.getElementById('start_game_btn').addEventListener('mouseout', function(
   this.innerHTML = 'Start Game';
 })
 
+document.getElementById('try_again_btn').addEventListener('click', function(){
+  location.reload();
+})
+
 // Get access to the camera!
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   // Not adding `{ audio: true }` since we only want video now
