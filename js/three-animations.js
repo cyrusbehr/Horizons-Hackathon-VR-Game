@@ -224,7 +224,7 @@ function animate() {
 
 // Create the render function
 function render() {
-  controls.update();
+  // controls.update();
   sphere.rotation.x += 0.05;
   sphere.rotation.y += 0.01;
   sphere.position.x = -(ball_x_position/1.85)+270
@@ -239,10 +239,8 @@ function render() {
 
 document.getElementById("start_game_btn").addEventListener('click', function(){
   gameHasStarted = true;
-  interval_id = setInterval(addRow, 10000);
-  console.log('interval_id', interval_id) //TODO: for debugging
+  interval_id = setInterval(addRow, 6000);
   document.getElementsByClassName("start_game_menu")[0].style.display = "none"
   document.getElementsByClassName("game_screen")[0].style.display = "block"
   document.getElementsByClassName("score-container")[0].style.display = "block"
-
 })

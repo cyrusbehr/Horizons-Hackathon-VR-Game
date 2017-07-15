@@ -1,6 +1,7 @@
 // gamestart btn animation
 document.getElementById('start_game_btn').addEventListener('mouseover', function(){
-  this.innerHTML = '<i class="fa fa-rocket" style="color:white"></i>';
+  // this.innerHTML = '<i class="fa fa-rocket" style="color:white"></i>';
+  this.textContent = 'GO';
 })
 
 document.getElementById('start_game_btn').addEventListener('mouseout', function(){
@@ -134,5 +135,8 @@ function updateScore (newScore){
 function gameOver(){
   clearInterval(interval_id);
   gameHasStarted = false;
-  alert('you lost');
+  document.getElementsByClassName("end_game_menu")[0].style.display = "flex";
+  document.getElementsByClassName("game_screen")[0].style.display = "none"
+  document.getElementsByClassName("score-container")[0].style.display = "none"
+  document.getElementById('result_score').textContent = score;
 }
