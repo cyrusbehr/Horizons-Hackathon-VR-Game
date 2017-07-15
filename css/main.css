@@ -102,6 +102,7 @@ p{
     width: 50px;
     border-radius:50%;
     background-color: #016995;
+    color: white;
   }
 }
 #start_game_btn:hover{
