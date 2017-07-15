@@ -25,6 +25,8 @@ var brickPaddingY = 10;
 var brickOffsetTop = 20;
 var brickOffsetLeft = 40;
 
+var gameHasStarted = false;
+
 //create brick array
 var bricks = [];
 for(c=0; c<brickColumnCount; c++) {

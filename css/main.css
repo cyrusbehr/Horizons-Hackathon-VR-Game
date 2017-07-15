@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @keyframes logo{
   0% {
     stroke-dashoffset: 1400;
@@ -8,6 +9,9 @@
     opacity: 1;
   }
 }
+=======
+
+>>>>>>> newMaster
 
 *{
   padding: 0;
@@ -15,7 +19,11 @@
 }
 
 html, body{
+<<<<<<< HEAD
   height: 100%;
+=======
+height: 100%;
+>>>>>>> newMaster
 }
 #canvas{
   transform: rotateY(180deg);
@@ -58,7 +66,26 @@ body{
   background: linear-gradient(to right, #74ebd5, #acb6e5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+<<<<<<< HEAD
 .start_game_menu{
+=======
+@keyframes logo{
+  0% {
+    stroke-dashoffset: 1400;
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+.start_game_menu{
+  position: absolute;
+  width: 960px;
+  height: 720px;
+  left: 240px;
+>>>>>>> newMaster
   margin: auto;
   background-color: #F0F0F0;
   padding: 30px;
@@ -67,6 +94,10 @@ body{
   justify-content: center;
   align-items: center;
   box-shadow: -1px 15px 30px -12px gray;
+<<<<<<< HEAD
+=======
+  z-index: 1;
+>>>>>>> newMaster
 }
 
 .st0{
@@ -89,8 +120,17 @@ body{
 #line3{
   stroke: #05a
 }
+<<<<<<< HEAD
 
 #snap{
+=======
+p{
+  font-size: 20px;
+}
+
+#start_game_btn{
+  margin-top: 10px;
+>>>>>>> newMaster
   border: 2px solid #016995;
   height: 40px;
   width: 150px;
@@ -105,6 +145,10 @@ body{
     box-shadow: 0px 0px 0px 1px #016995;
   }
 }
+<<<<<<< HEAD
 #snap:hover{
+=======
+#start_game_btn:hover{
+>>>>>>> newMaster
   animation: btn_hover 0.3s ease-in-out forwards;
 }

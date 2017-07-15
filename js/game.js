@@ -21,7 +21,6 @@ colors.on('track', function(event) {
       paddle_x_position = rect.x*ratio //Multiply by the scaling factor used for the screen size
       paddle_y_position = rect.y*ratio
 
-      console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
       //determine where the top of the detected object is
       if (rect.width * rect.height > maxRectArea){
         maxRectArea = rect.width * rect.height;
@@ -39,8 +38,10 @@ window.onload = function() {
 
 //THE UPDATE SCREEN FUNCTION
 var update = () => {
-  ball_x_position+=x_velocity;
-  ball_y_position+=y_velocity
+  if(gameHasStarted){
+    ball_x_position+=x_velocity;
+    ball_y_position+=y_velocity
+  }
   if(ball_y_position<0 && y_velocity < 0) {
     y_velocity=-y_velocity;
   }
@@ -55,7 +56,7 @@ var update = () => {
     x_velocity = -x_velocity;
   }
 
-  if(ball_y_position > paddle_y_position - -30 && (ball_y_position - paddle_y_position) < 50 && ball_x_position > paddle_x_position && ball_x_position < paddle_x_position + paddle_width && y_velocity > 0){
+  if(ball_y_position > paddle_y_position - 0 && (ball_y_position - paddle_y_position) < 50 && ball_x_position > paddle_x_position && ball_x_position < paddle_x_position + paddle_width && y_velocity > 0){
     y_velocity=-y_velocity;
   }
 
