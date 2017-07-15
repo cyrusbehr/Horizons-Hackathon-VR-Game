@@ -35,6 +35,21 @@ function init() {
   camera.position.z = 200;
   camera.position.y = -35;
 
+  // Create AudioListener
+  var listener = new THREE.AudioListener()
+  camera.add(listener);
+
+  // Create global audio source
+  var sound = new THREE.Audio( listener );
+  var audioLoader = new THREE.AudioLoader();
+
+  audioLoader.load( '../js/sounds/376737_Skullbeatz___Bad_Cat_Maste.mp3', function( buffer ) {
+	sound.setBuffer( buffer );
+	sound.setLoop(true);
+	sound.setVolume(0.5);
+	sound.play();
+});
+
   // Create and ambient light
   ambLight = new THREE.AmbientLight( 0xcd950c )
   scene.add( ambLight );
