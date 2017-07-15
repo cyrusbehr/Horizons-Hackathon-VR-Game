@@ -132,6 +132,11 @@ function updateScore (newScore){
   $("#score").text("Score: " + newScore)
 }
 
+function updateSpeed () {
+  x_velocity *= 4;
+  y_velocity *= 4;
+}
+
 function gameOver(){
   clearInterval(interval_id);
   gameHasStarted = false;
