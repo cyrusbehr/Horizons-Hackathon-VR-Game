@@ -35,6 +35,21 @@ function init() {
   camera.position.z = 200;
   camera.position.y = -35;
 
+  // Create AudioListener
+  var listener = new THREE.AudioListener()
+  camera.add(listener);
+
+  // Create global audio source
+  var sound = new THREE.Audio( listener );
+  var audioLoader = new THREE.AudioLoader();
+
+  audioLoader.load( '../js/sounds/376737_Skullbeatz___Bad_Cat_Maste.mp3', function( buffer ) {
+	sound.setBuffer( buffer );
+	sound.setLoop(true);
+	sound.setVolume(0.5);
+	sound.play();
+});
+
   // Create and ambient light
   ambLight = new THREE.AmbientLight( 0xcd950c )
   scene.add( ambLight );
@@ -221,6 +236,7 @@ function animate() {
   render();
 }
 
+
 // Create the render function
 function render() {
   // controls.update();
@@ -238,10 +254,13 @@ function render() {
 
 document.getElementById("start_game_btn").addEventListener('click', function(){
   gameHasStarted = true;
+  setTimeout(updateSpeed, 5000)
   interval_id = setInterval(addRow, 6000);
   // document.getElementsByClassName("start_game_menu")[0].style.display = "none";
   document.getElementsByClassName("start_game_menu")[0].className += " animated fadeOutUp";
 
   document.getElementsByClassName("game_screen")[0].style.display = "block";
   document.getElementsByClassName("score-container")[0].style.display = "block";
+  var item = document.getElementById("fourth-text")
+  item.className = "fourth-text"
 })
