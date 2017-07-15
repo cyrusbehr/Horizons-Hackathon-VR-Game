@@ -12,8 +12,8 @@ var paddle_y_position = 430
 var ball_x_position = 470;
 var ball_y_position = 200;
 var ball_dimension = 15;
-var x_velocity = 4;
-var y_velocity = 4;
+var x_velocity = 1;
+var y_velocity = 1;
 
 //brick parameters
 var brickRowCount = 3;
