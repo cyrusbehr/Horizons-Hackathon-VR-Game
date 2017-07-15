@@ -1,8 +1,18 @@
 var container, stats;
-var camera, controls, scene, renderer, sphere;
+var camera, controls, scene, renderer, sphere, pointCloud;
 var objects = [];
 var topPosition = 165;
 var xPadding = 46;
+
+var movementSpeed = 80;
+var totalObjects = 1000;
+var objectSize = 10;
+var sizeRandomness = 4000;
+/////////////////////////////////
+var dirs = [];
+var parts = [];
+
+
 init();
 animate();
 
@@ -80,7 +90,7 @@ function init() {
 
   // For loop that creates each object on the second row with a random color
   for ( var i = 0; i < 10; i ++ ) {
-    var material = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff } )
+    var material = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff, name: 'object' + i } )
     var object = new THREE.Mesh( geometry, material);
     object.position.x = -205 + (i*xPadding);
     object.position.y = topPosition+30;
@@ -103,6 +113,12 @@ function init() {
     scene.add( object );
     objects.push( object );
   }
+
+parts.push(new ExplodeAnimation(0, 0));
+
+
+
+
 
   // Renders everything
 
@@ -127,6 +143,49 @@ function onWindowResize() {
   renderer.setSize( WIDTH, HEIGHT );
 }
 
+function ExplodeAnimation(x,y)
+{
+  var geometry = new THREE.Geometry();
+
+  for (i = 0; i < totalObjects; i ++)
+  {
+    var vertex = new THREE.Vector3();
+    vertex.x = x;
+    vertex.y = y;
+    vertex.z = 0;
+
+    geometry.vertices.push( vertex );
+    dirs.push({x:(Math.random() * movementSpeed)-(movementSpeed/2),y:(Math.random() * movementSpeed)-(movementSpeed/2),z:(Math.random() * movementSpeed)-(movementSpeed/2)});
+  }
+  var material = new THREE.ParticleBasicMaterial( { size: objectSize,  color: colors[Math.round(Math.random() * colors.length)] });
+  var particles = new THREE.ParticleSystem( geometry, material );
+
+  this.object = particles;
+  this.status = true;
+
+  this.xDir = (Math.random() * movementSpeed)-(movementSpeed/2);
+  this.yDir = (Math.random() * movementSpeed)-(movementSpeed/2);
+  this.zDir = (Math.random() * movementSpeed)-(movementSpeed/2);
+
+  scene.add( this.object  );
+
+  this.update = function(){
+    if (this.status == true){
+      var pCount = totalObjects;
+      while(pCount--) {
+        var particle =  this.object.geometry.vertices[pCount]
+        particle.y += dirs[pCount].y;
+        particle.x += dirs[pCount].x;
+        particle.z += dirs[pCount].z;
+      }
+      this.object.geometry.verticesNeedUpdate = true;
+    }
+  }
+
+}
+
+
+
 // Create the animate function
 function animate() {
   requestAnimationFrame( animate )
@@ -140,5 +199,9 @@ function render() {
   sphere.rotation.y += 0.01;
   sphere.position.x = -(ball_x_position - 510)/2
   sphere.position.y = -(ball_y_position - 440)/2
-  renderer.render( scene, camera );
+  var pCount = parts.length;
+    while(pCount--) {
+      parts[pCount].update();
+    }
+  renderer.render( scene, camera);
 }
