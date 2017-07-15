@@ -86,6 +86,9 @@ function colDetection() {
   for(let i = 0 ; i < brickArray.length; i++ ){
     var brick = brickArray[i]
     if(brick.status === 1){
+      if(gameHasStarted){
+        brickArray[i].position.y -= 0.02;
+      }
     if(brick.row === 3 ) {
       var brickX = -brick.position.x*1.65+450;
     }else if (brick.row === 2 ){
@@ -98,6 +101,8 @@ function colDetection() {
           y_velocity = -y_velocity;
           brickArray[i].status = 0;
           removeEntity(brick)
+          brickArray.splice(i, 1);
+          console.log(brickArray)
           parts.push(new ExplodeAnimation(brick.position.x, brick.position.y));
           updateScore(++score);
     }

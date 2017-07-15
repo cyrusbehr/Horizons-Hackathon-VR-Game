@@ -91,7 +91,6 @@ function init() {
     object.row = 1;
     object.name = objectName.toString();
     objectName++;
-    // console.log(object)
     scene.add( object );
     brickArray.push( object );
   }
@@ -109,7 +108,6 @@ function init() {
     object.row = 2;
     object.name = objectName.toString();
     objectName++;
-    console.log(object)
     scene.add( object );
     brickArray.push( object );
   }
@@ -127,7 +125,6 @@ function init() {
     object.row = 3;
     object.name = objectName.toString();
     objectName++;
-    console.log(object)
     scene.add( object );
     brickArray.push( object );
   }
@@ -195,6 +192,25 @@ function ExplodeAnimation(x,y) {
 }
 
 
+function addRow () {
+  var geometry = new THREE.BoxGeometry(40, 10, 8);
+  for ( var i = 0; i < 12; i ++ ) {
+    var material = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff } )
+    var object = new THREE.Mesh( geometry, material);
+    object.position.x = -252 + (i*xPadding);
+    object.position.y = topPosition + 60;
+    object.position.z = 0;
+    object.castShadow = true;
+    object.receiveShadow = true;
+    object.status = 1;
+    object.row = 1;
+    object.name = objectName.toString();
+    objectName++;
+    // console.log(object)
+    scene.add( object );
+    brickArray.push( object );
+  }
+}
 
 // Create the animate function
 function animate() {
@@ -219,6 +235,7 @@ function render() {
 
 document.getElementById("start_game_btn").addEventListener('click', function(){
   gameHasStarted = true;
+  setInterval(addRow, 10000);
   document.getElementsByClassName("start_game_menu")[0].style.display = "none"
   document.getElementsByClassName("game_screen")[0].style.display = "block"
   document.getElementsByClassName("score-container")[0].style.display = "block"
