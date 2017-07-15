@@ -4,6 +4,7 @@ var brickArray = [];
 var topPosition = 165;
 var xPadding = 46;
 var objectName = 0;
+var particleName = 0;
 
 var movementSpeed = 80;
 var totalObjects = 1000;
@@ -181,9 +182,9 @@ function ExplodeAnimation(x,y) {
       var pCount = totalObjects;
       while(pCount--) {
         var particle =  this.object.geometry.vertices[pCount]
-        particle.y += dirs[pCount].y;
-        particle.x += dirs[pCount].x;
-        particle.z += dirs[pCount].z;
+        particle.y += 2*dirs[pCount].y;
+        particle.x += 2*dirs[pCount].x;
+        particle.z += 2*dirs[pCount].z;
       }
       this.object.geometry.verticesNeedUpdate = true;
     }
@@ -195,20 +196,22 @@ function ExplodeAnimation(x,y) {
 function addRow () {
   var geometry = new THREE.BoxGeometry(40, 10, 8);
   for ( var i = 0; i < 12; i ++ ) {
-    var material = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff } )
-    var object = new THREE.Mesh( geometry, material);
-    object.position.x = -252 + (i*xPadding);
-    object.position.y = topPosition + 60;
-    object.position.z = 0;
-    object.castShadow = true;
-    object.receiveShadow = true;
-    object.status = 1;
-    object.row = 1;
-    object.name = objectName.toString();
-    objectName++;
-    // console.log(object)
-    scene.add( object );
-    brickArray.push( object );
+    if(Math.random() < 0.7 ){
+      var material = new THREE.MeshPhongMaterial( { color: Math.random() * 0xffffff } )
+      var object = new THREE.Mesh( geometry, material);
+      object.position.x = -252 + (i*xPadding);
+      object.position.y = topPosition + 60;
+      object.position.z = 0;
+      object.castShadow = true;
+      object.receiveShadow = true;
+      object.status = 1;
+      object.row = 1;
+      object.name = objectName.toString();
+      objectName++;
+      console.log(object)
+      scene.add( object );
+      brickArray.push( object );
+    }
   }
 }
 
