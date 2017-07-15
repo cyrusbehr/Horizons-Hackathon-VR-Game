@@ -4,25 +4,23 @@
 }
 #canvas{
   transform: rotateY(180deg);
-  padding-left: 0;
-  padding-right: 0;
-  margin: auto;
-  display: block;
-  width: 640px;
+  position: absolute;
+  left: 240px;
+  top: 20px;
   box-shadow: -1px 15px 30px -12px gray;
-  margin-top: 100px;
-  border-radius: 5px;
 }
 
 #my_velocityvideo{ /* hard coding so that it hides behind the canvas*/
   position: absolute;
-  top:200px;
-  left:50%;
+  top:50px;
+  left:500px;
   z-index: -1;
 }
 
-.start_game_menu{
-
+div{
+  position: absolute;;
+  top:20px;
+  left:0px;
 }
 
 body{

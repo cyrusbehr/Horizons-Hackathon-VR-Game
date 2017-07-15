@@ -13,7 +13,6 @@ document.getElementById("snap").addEventListener("click", function() {
 
 });
 
-
 var colors = new tracking.ColorTracker(['magenta']);
 colors.setMinDimension(5);
 colors.setMinGroupSize(10)
@@ -77,13 +76,13 @@ var update = () => {
   context.closePath();
 
   //DEBUGGING:
-  context.fillStyle='red';
-  context.fillRect(paddle_x_position, paddle_y_position, paddle_width, paddle_height);
+  // context.fillStyle='red';
+  // context.fillRect(paddle_x_position, paddle_y_position, paddle_width, paddle_height);
 }
 
 // RENDERS THE IMAGE
 var renderImage = ()  => {
-  context.drawImage(video, 0, 0, 640, 480);
+  context.drawImage(video, 0, 0, 960, 720);
   context.restore();
 }
 
