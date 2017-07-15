@@ -44,8 +44,8 @@ window.onload = function() {
 
 //THE UPDATE SCREEN FUNCTION
 var update = () => {
-  // ball_x_position+=x_velocity;
-  // ball_y_position+=y_velocity
+  ball_x_position+=x_velocity;
+  ball_y_position+=y_velocity
   if(ball_y_position<0 && y_velocity < 0) {
     y_velocity=-y_velocity;
   }
@@ -69,11 +69,11 @@ var update = () => {
   drawBricks();
 
   //create a sphere
-  context.beginPath();
-  context.arc(ball_x_position, ball_y_position, ball_dimension, 0, Math.PI*2, false)
-  context.fillStyle='green';
-  context.fill();
-  context.closePath();
+  // context.beginPath();
+  // context.arc(ball_x_position, ball_y_position, ball_dimension, 0, Math.PI*2, false)
+  // context.fillStyle='green';
+  // context.fill();
+  // context.closePath();
 
   //DEBUGGING:
   context.fillStyle='red';

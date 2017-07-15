@@ -47,9 +47,9 @@ function init() {
 
   // Create a sphere geometry with materials and Mesh
   // var geometry = new THREE.TetrahedronGeometry( 95, 3);
-  var geometry = new THREE.TetrahedronGeometry(13, 3);
+  var geometry = new THREE.TetrahedronGeometry(13, 1);
   var material = new THREE.MeshPhongMaterial({
-    color: 0xf25346,
+    color: 0x33d6ff,
     shininess:0,
     specular:0xffffff,
     shading:THREE.FlatShading
@@ -57,7 +57,7 @@ function init() {
   sphere = new THREE.Mesh( geometry, material );
   sphere.position.x = 0
   sphere.position.z = 0
-  sphere.position.y = 0
+  sphere.position.y = 120
   sphere.castShadow = true;
   sphere.receiveShadow = true;
   scene.add( sphere );
@@ -138,7 +138,7 @@ function render() {
   controls.update();
   sphere.rotation.x += 0.05;
   sphere.rotation.y += 0.01;
-  // sphere.position.x +=x_velocity*1.5
-  // sphere.position.y +=y_velocity*1.5
+  sphere.position.x = -(ball_x_position - 510)/2
+  sphere.position.y = -(ball_y_position - 440)/2
   renderer.render( scene, camera );
 }
