@@ -144,6 +144,20 @@ p{
   color: #FE5C5C
 }
 
+@keyframes try_again_btn_hover{
+  from{
+
+  }
+  to{
+    box-shadow: 0px 0px 0px 3px #FE5C5C;
+    font-weight: bold;
+  }
+}
+
+#try_again_btn:hover{
+  animation: try_again_btn_hover 0.3s ease-in-out forwards;
+}
+
 .animated {
   animation-duration: 1s;
   animation-fill-mode: both;
@@ -234,4 +248,11 @@ body {
   left: 550px;
   z-index: 3;
   opacity: 0;
+}
+
+.score-container{
+  color: white;
+  padding-left: 30px;
+  text-shadow: 15px 15px 9px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
 }
