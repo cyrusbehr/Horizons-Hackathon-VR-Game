@@ -76,8 +76,8 @@ var update = () => {
   // context.closePath();
 
   //DEBUGGING:
-  context.fillStyle='red';
-  context.fillRect(paddle_x_position, paddle_y_position, paddle_width, paddle_height);
+  // context.fillStyle='red';
+  // context.fillRect(paddle_x_position, paddle_y_position, paddle_width, paddle_height);
 }
 
 // RENDERS THE IMAGE
