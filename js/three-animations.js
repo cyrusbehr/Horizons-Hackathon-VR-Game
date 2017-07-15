@@ -214,3 +214,7 @@ function render() {
     }
   renderer.render( scene, camera);
 }
+
+document.getElementById("start_game_btn").addEventListener('click', function(){
+  gameHasStarted = true;
+})
