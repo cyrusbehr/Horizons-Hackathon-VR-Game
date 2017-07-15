@@ -10,7 +10,7 @@
   box-shadow: -1px 15px 30px -12px gray;
 }
 
-#my_velocityvideo{
+#my_velocityvideo{ /* hard coding so that it hides behind the canvas*/
   position: absolute;
   top:50px;
   left:500px;
