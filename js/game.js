@@ -2,10 +2,16 @@
 document.getElementById('start_game_btn').addEventListener('mouseover', function(){
   // this.innerHTML = '<i class="fa fa-rocket" style="color:white"></i>';
   this.textContent = 'GO';
+  this.classList.remove("animated");
+  this.classList.remove("fadeInUp");
 })
 
 document.getElementById('start_game_btn').addEventListener('mouseout', function(){
   this.innerHTML = 'Start Game';
+})
+
+document.getElementById('try_again_btn').addEventListener('click', function(){
+  location.reload();
 })
 
 // Get access to the camera!

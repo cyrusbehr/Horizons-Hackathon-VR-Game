@@ -256,9 +256,11 @@ document.getElementById("start_game_btn").addEventListener('click', function(){
   gameHasStarted = true;
   setTimeout(updateSpeed, 5000)
   interval_id = setInterval(addRow, 6000);
-  document.getElementsByClassName("start_game_menu")[0].style.display = "none"
-  document.getElementsByClassName("game_screen")[0].style.display = "block"
-  document.getElementsByClassName("score-container")[0].style.display = "block"
+  // document.getElementsByClassName("start_game_menu")[0].style.display = "none";
+  document.getElementsByClassName("start_game_menu")[0].className += " animated fadeOutUp";
+
+  document.getElementsByClassName("game_screen")[0].style.display = "block";
+  document.getElementsByClassName("score-container")[0].style.display = "block";
   var item = document.getElementById("fourth-text")
   item.className = "fourth-text"
 })
