@@ -5,15 +5,23 @@
   <title>Block Breaker Reborn</title>
   <script src="./js/lib/tracking-min.js"></script>
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/materialize.css">
 </head>
 <body>
-  <!-- video used to render large image -->
-  <video style="display: none" id="video" width="10" height="10" autoplay></video>
-  <!-- canvas where the video is rendered -->
-  <canvas id="canvas" width="640" height="480"></canvas>
-  <button id="snap">Take picture</button>
-  <!-- video in which the tracking is done -->
-  <video id="my_velocityvideo" width="200" height="150" preload autoplay loop muted></video>
+  <div class="game_screen">
+    <!-- video used to render large image -->
+    <video style="display: none" id="video" width="10" height="10" autoplay></video>
+    <!-- canvas where the video is rendered -->
+    <canvas id="canvas" width="640" height="480"></canvas>
+
+    <!-- video in which the tracking is done -->
+    <video id="my_velocityvideo" width="200" height="150" preload autoplay loop muted></video>
+  </div>
+
+  <div class="start_game_menu">
+    <button id="snap">Start Game</button>
+  </div>
+
 
   <script src="./js/variables.js"></script>
   <script src="./js/computer-vision-helper.js"></script>
