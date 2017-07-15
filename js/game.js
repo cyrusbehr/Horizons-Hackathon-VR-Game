@@ -97,6 +97,7 @@ function colDetection() {
           y_velocity = -y_velocity;
           brickArray[i].status = 0;
           removeEntity(brick)
+          parts.push(new ExplodeAnimation(brick.position.x, brick.position.y));
           updateScore(++score);
     }
 }}

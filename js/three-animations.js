@@ -130,12 +130,6 @@ function init() {
     brickArray.push( object );
   }
 
-parts.push(new ExplodeAnimation(0, 0));
-
-
-
-
-
   // Renders everything
 
   renderer = new THREE.WebGLRenderer( { alpha: true } );
@@ -159,12 +153,10 @@ function onWindowResize() {
   renderer.setSize( WIDTH, HEIGHT );
 }
 
-function ExplodeAnimation(x,y)
-{
+function ExplodeAnimation(x,y) {
   var geometry = new THREE.Geometry();
 
-  for (i = 0; i < totalObjects; i ++)
-  {
+  for (i = 0; i < totalObjects; i ++) {
     var vertex = new THREE.Vector3();
     vertex.x = x;
     vertex.y = y;
@@ -221,5 +213,4 @@ function render() {
       parts[pCount].update();
     }
   renderer.render( scene, camera);
-
 }
