@@ -16,7 +16,7 @@ var y_velocity = 2;
 //brick parameters
 var brickRowCount = 3;
 var brickColumnCount = 6;
-var brickWidth = 60;
+var brickWidth = 65;
 var brickHeight = 20;
 var brickPaddingX = 20;
 var brickPaddingY = 10;
@@ -29,6 +29,7 @@ for(c=0; c<brickColumnCount; c++) {
     bricks[c] = [];
     for(r=0; r<brickRowCount; r++) {
          bricks[c][r] = { x: 0, y: 0, status: 1 };
+
     }
 }
 

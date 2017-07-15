@@ -75,6 +75,7 @@ function init() {
     object.castShadow = true;
     object.receiveShadow = true;
     object.status = 1;
+    object.row = 1;
     scene.add( object );
     brickArray.push( object );
   }
@@ -89,6 +90,7 @@ function init() {
     object.castShadow = true;
     object.receiveShadow = true;
     object.status = 1;
+    object.row = 2;
     scene.add( object );
     brickArray.push( object );
   }
@@ -102,8 +104,8 @@ function init() {
     object.position.z = 0;
     object.castShadow = true;
     object.receiveShadow = true;
-      object.status = 1;
-    console.log(object)
+    object.status = 1;
+    object.row = 3;
     scene.add( object );
     brickArray.push( object );
   }

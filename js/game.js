@@ -61,14 +61,15 @@ var update = () => {
 
   renderImage();
   collisionDetection();
-  drawBricks();
+  colDetection();
+  // drawBricks();
 
   //create a sphere
-  // context.beginPath();
-  // context.arc(ball_x_position, ball_y_position, ball_dimension, 0, Math.PI*2, false)
-  // context.fillStyle='green';
-  // context.fill();
-  // context.closePath();
+  context.beginPath();
+  context.arc(ball_x_position, ball_y_position, ball_dimension, 0, Math.PI*2, false)
+  context.fillStyle='green';
+  context.fill();
+  context.closePath();
 
   //DEBUGGING:
   // context.fillStyle='red';
@@ -100,16 +101,34 @@ function collisionDetection() {
 function colDetection() {
   for(let i = 0 ; i < brickArray.length; i++ ){
     var brick = brickArray[i]
-    if(brick.status === 1){
-      let brickX = brick.position.x;
-      let brickY = brick.position.y;
+    // if(brick.status === 1){
+    if(brick.row === 3 ) {
+      var brickX = brick.position.x*1.65+460;
+    }else{
+      var brickX = brick.position.x*1.6+444;
+    }
+      let brickY = -brick.position.y*1.5+360
+      drawItem(brickX, brickY)
       if(ball_x_position > brickX && ball_x_position < brickX + brickWidth && ball_y_position > brickY && ball_y_position < brickY+brickHeight) {
           y_velocity = -y_velocity;
           brickArray[i].status = 0;
+          console.log('There was a collision');
     }
-  }
+  // }
 }
 }
+
+function drawItem(x,y) {
+
+        context.beginPath();
+        context.rect(x, y, brickWidth, brickHeight);
+        context.fillStyle = "#0095DD";
+        context.fill();
+        context.closePath();
+
+}
+
+
 
 function drawBricks() {
   for(let c=0; c<brickColumnCount; c++) {
