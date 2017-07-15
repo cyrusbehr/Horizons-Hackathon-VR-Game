@@ -221,6 +221,7 @@ function animate() {
   render();
 }
 
+
 // Create the render function
 function render() {
   controls.update();
