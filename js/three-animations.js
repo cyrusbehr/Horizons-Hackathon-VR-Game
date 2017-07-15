@@ -89,7 +89,7 @@ function init() {
     object.row = 1;
     object.name = objectName.toString();
     objectName++;
-    console.log(object)
+    // console.log(object)
     scene.add( object );
     brickArray.push( object );
   }
@@ -217,4 +217,6 @@ function render() {
 
 document.getElementById("start_game_btn").addEventListener('click', function(){
   gameHasStarted = true;
+  document.getElementsByClassName("start_game_menu")[0].style.display = "none"
+
 })
