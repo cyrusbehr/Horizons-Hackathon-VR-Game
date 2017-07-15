@@ -232,7 +232,7 @@ function addRow () {
       brickArray.push( object );
     } else if (num < 0.77){
       let geometry = new THREE.TorusGeometry( 10, 3, 16, 100 );
-      let material = new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } );
+      let material = new THREE.MeshToonMaterial( { color: Math.random() * 0xffffff } );
       let torus = new THREE.Mesh( geometry, material );
       torus.position.x = -252 + (i*xPadding);
       torus.position.y = topPosition + 60;
