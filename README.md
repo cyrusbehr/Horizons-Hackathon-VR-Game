@@ -1,4 +1,4 @@
-# &lt;<BREAKR/>&gt; Horizons Hackathon Submission
+# &lt;< BREAKR />&gt; Horizons Hackathon Submission
 
 ## Deployment
 
@@ -28,4 +28,4 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 * **Cyrus Behroozi**
 * **Donovan So**
-* **Jatharsan Paramthillairajah** 
+* **Jatharsan Paramthillairajah**
