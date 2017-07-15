@@ -109,7 +109,6 @@ function init() {
     object.row = 2;
     object.name = objectName.toString();
     objectName++;
-    console.log(object)
     scene.add( object );
     brickArray.push( object );
   }
@@ -127,7 +126,6 @@ function init() {
     object.row = 3;
     object.name = objectName.toString();
     objectName++;
-    console.log(object)
     scene.add( object );
     brickArray.push( object );
   }
@@ -217,10 +215,10 @@ function render() {
   renderer.render( scene, camera);
 }
 
-// document.getElementById("start_game_btn").addEventListener('click', function(){
-//   gameHasStarted = true;
-//   document.getElementsByClassName("start_game_menu")[0].style.display = "none"
-//   document.getElementsByClassName("game_screen")[0].style.display = "block"
-//   document.getElementsByClassName("score-container")[0].style.display = "block"
-//
-// })
+document.getElementById("start_game_btn").addEventListener('click', function(){
+  gameHasStarted = true;
+  document.getElementsByClassName("start_game_menu")[0].style.display = "none"
+  document.getElementsByClassName("game_screen")[0].style.display = "block"
+  document.getElementsByClassName("score-container")[0].style.display = "block"
+
+})
