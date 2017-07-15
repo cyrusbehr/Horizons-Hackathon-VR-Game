@@ -17,9 +17,17 @@ var parts = [];
 init();
 animate();
 
+document.getElementById("snap").addEventListener("click", function() {
+    init();
+    animate();
+    setInterval(update, updateRate);
+    document.getElementsByClassName('game_screen')[0].style.display = "block";
+    document.getElementsByClassName('start_game_menu')[0].setAttribute("style", "display:none");
+});
 
 function init() {
   container = document.createElement( 'div' );
+  container.className = "threejs"
   document.body.appendChild( container );
 
   // Create the scene and set the scene size
