@@ -230,7 +230,7 @@ function addRow () {
       // console.log(object)
       scene.add( object );
       brickArray.push( object );
-    } else if (num < 0.8){
+    } else if (num < 0.77){
       let geometry = new THREE.TorusGeometry( 10, 3, 16, 100 );
       let material = new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } );
       let torus = new THREE.Mesh( geometry, material );
@@ -273,7 +273,7 @@ function render() {
 document.getElementById("start_game_btn").addEventListener('click', function(){
   gameHasStarted = true;
   setTimeout(updateSpeed, 5000)
-  interval_id = setInterval(addRow, 6000);
+  interval_id = setInterval(addRow, 3000);
   // document.getElementsByClassName("start_game_menu")[0].style.display = "none";
   document.getElementsByClassName("start_game_menu")[0].className += " animated fadeOutUp";
 

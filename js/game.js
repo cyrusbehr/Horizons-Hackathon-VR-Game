@@ -98,7 +98,7 @@ function colDetection() {
     var brick = brickArray[i]
     if(brick.status === 1){
       if(gameHasStarted){
-        brickArray[i].position.y -= 0.03;
+        brickArray[i].position.y -= brickspeed;
       }
     if(brick.row === 3 ) {
       var brickX = -brick.position.x*1.65+450;
@@ -112,13 +112,24 @@ function colDetection() {
           y_velocity = -y_velocity;
           brickArray[i].status = 0;
           removeEntity(brick)
-          brickArray.splice(i, 1);
+
           parts.push(new ExplodeAnimation(brick.position.x, brick.position.y));
           if(parts.length===30){
             parts.splice(0,1)
           }
+          if(brick.isPowerup === 1){
+            brickArray.forEach(function(element){
+              removeEntity(element)
+            })
+            brickArray = [];
+            score = score + 25;
+            updateScore(score);
+          }else{
+            updateScore(++score);
+          }
+          brickArray.splice(i, 1);
           // console.log(parts)
-          updateScore(++score);
+
     }
 }}
 }
@@ -135,6 +146,7 @@ function updateScore (newScore){
 function updateSpeed () {
   x_velocity *= 4;
   y_velocity *= 4;
+  brickspeed = 0.07;
 }
 
 function gameOver(){
