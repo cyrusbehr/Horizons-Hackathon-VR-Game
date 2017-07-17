@@ -20,9 +20,6 @@ The game can also be initiated by saying "Start Game" into your computer microph
 * [Tracking.js](https://trackingjs.com/) - Computer Vision
 * [Three.js](https://threejs.org/) - Graphics
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
