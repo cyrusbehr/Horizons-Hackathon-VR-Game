@@ -1,6 +1,6 @@
 # BREAKR - Horizons Hackathon Submission
 
-This was our winning submission of the 2017 Horizons School of Technology Hackathon
+This was our winning submission for the 2017 Horizons School of Technology Hackathon
 
 ## Deployment
 
