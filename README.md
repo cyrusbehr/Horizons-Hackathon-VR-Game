@@ -1,5 +1,7 @@
 # BREAKR - Horizons Hackathon Submission
 
+This was our winning submission of the 2017 Horizons School of Technology Hackathon
+
 ## Deployment
 
 Install the latest version of python on your system
