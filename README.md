@@ -2,7 +2,7 @@
 
 This was our winning submission for the 2017 Horizons School of Technology Hackathon
 
-* [Check out the demo video](https://www.youtube.com/watch?v=9CfLI9RGL14) 
+[Check out the demo video](https://www.youtube.com/watch?v=9CfLI9RGL14) 
 
 ## Deployment
 
