@@ -1,5 +1,7 @@
 # BREAKR - Horizons Hackathon Submission
 
+* [Check out the demo video](https://www.youtube.com/watch?v=9CfLI9RGL14) 
+
 ## Deployment
 
 Install the latest version of python on your system
